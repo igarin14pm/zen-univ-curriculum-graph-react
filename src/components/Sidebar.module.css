@@ -1,0 +1,53 @@
+.siteNameLink {
+  text-decoration: none;
+}
+
+.siteLogo {
+  height: 100px;
+}
+
+.siteNameText {
+  color: #030363;
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.globalGraphButton {
+  width: 100%;
+  background-color: #030363;
+  border-radius: 10px;
+  box-shadow: 0 0 0 #bbbbbb;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  transition: box-shadow 0.2s ease-out;
+  border: none;
+}
+
+.globalGraphButton:hover {
+  box-shadow: 0 6px 10px #bbbbbb;
+}
+
+.globalGraphButtonText {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1
+}
+
+.globalGraphButtonChevron {
+  fill: #ffffff;
+  height: 1.25rem;
+  transition: transform 0.2s ease-out;
+}
+
+.globalGraphButton:hover .globalGraphButtonChevron {
+  transform: translateX(50%);
+}
+
+.sidebarContainer {
+  margin: 50px 10px;
+  width: 280px;
+  height: 100%;
+}
