@@ -20,11 +20,12 @@
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  transition: box-shadow 0.2s ease-out;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
   border: none;
 }
 
 .globalGraphButton:hover {
+  background-color: #050594;
   box-shadow: 0 6px 10px #bbbbbb;
 }
 
