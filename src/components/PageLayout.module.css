@@ -1,0 +1,12 @@
+.container {
+  margin: 50px 10px;
+  width: 680px;
+  padding: 50px;
+  background-color: #ffffff;
+  border: solid 1px #e8e8ff;
+  border-radius: 10px;
+}
+
+.pageTitle {
+  margin-top: 0;
+}
