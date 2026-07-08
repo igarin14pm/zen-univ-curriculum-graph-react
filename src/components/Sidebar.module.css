@@ -12,11 +12,17 @@
   margin-top: 0;
 }
 
+.pageList {
+  padding: 0;
+  list-style-type: none;
+}
+
 .globalGraphButton {
   width: 100%;
   background-color: #030363;
   border-radius: 10px;
   box-shadow: 0 0 0 #bbbbbb;
+  margin: var(--main-standard-margin-vertical) 0;
   padding: 20px;
   display: flex;
   justify-content: space-between;

@@ -47,5 +47,9 @@ h2 {
 
 li {
   font-size: 1rem;
-  margin: calc(0.5rem * var(--main-line-height)) 0;
+  margin: calc(0.33rem * var(--main-line-height)) 0;
+}
+
+ul {
+  margin: var(--main-standard-margin-vertical) 0;
 }
