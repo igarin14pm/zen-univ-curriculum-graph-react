@@ -45,6 +45,14 @@ h2 {
   margin-bottom: var(--standard-margin-vertical);
 }
 
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  margin-top: calc(1.25rem * var(--line-height));
+  margin-bottom: var(--standard-margin-vertical);
+}
+
 li {
   font-size: 1rem;
   margin: calc(0.33rem * var(--line-height)) 0;

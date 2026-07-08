@@ -1,10 +1,10 @@
 .container {
   margin: 50px 10px;
-  width: calc(1200px - 300px - 102px);
-  padding: 50px;
-  background-color: #ffffff;
   border: solid 1px #e8e8ff;
   border-radius: 10px;
+  padding: 50px;
+  width: calc(1200px - 300px - 102px);
+  background-color: #ffffff;
 }
 
 .pageTitle {
