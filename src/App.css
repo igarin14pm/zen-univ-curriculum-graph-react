@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
 
 :root {
-  --main-line-height: 1.65;
-  --main-standard-margin-vertical: calc(1rem * var(--main-line-height));
+  --line-height: 1.65;
+  --standard-margin-vertical: calc(1rem * var(--line-height));
 }
 
 * {
@@ -13,7 +13,7 @@
 
 body {
   background-color: #f4f4ff;
-  line-height: var(--main-line-height);
+  line-height: var(--line-height);
 }
 
 a {
@@ -33,23 +33,23 @@ h1 {
   font-size: 3rem;
   font-weight: 800;
 
-  margin-top: calc(3rem * var(--main-line-height));
-  margin-bottom: var(--main-standard-margin-vertical);
+  margin-top: calc(3rem * var(--line-height));
+  margin-bottom: var(--standard-margin-vertical);
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 700;
 
-  margin-top: calc(2rem * var(--main-line-height));
-  margin-bottom: var(--main-standard-margin-vertical);
+  margin-top: calc(2rem * var(--line-height));
+  margin-bottom: var(--standard-margin-vertical);
 }
 
 li {
   font-size: 1rem;
-  margin: calc(0.33rem * var(--main-line-height)) 0;
+  margin: calc(0.33rem * var(--line-height)) 0;
 }
 
 ul {
-  margin: var(--main-standard-margin-vertical) 0;
+  margin: var(--standard-margin-vertical) 0;
 }
