@@ -12,7 +12,7 @@ export interface Subject {
 
 export class Syllabus {
 
-  static readonly subjectIdMap = new Map<string, string>([
+  static readonly mockSubjectIdMap = new Map<string, string>([
     ['科目A', 'SBJ-A'],
     ['科目B', 'SBJ-B'],
     ['科目C', 'SBJ-C'],
@@ -24,7 +24,7 @@ export class Syllabus {
   ]);
 
   static getSubjectIdByName(name: string): string {
-    const id: string | undefined = this.subjectIdMap.get(name);
+    const id: string | undefined = this.mockSubjectIdMap.get(name);
     if (id === undefined) {
       throw new SyllabusReferenceError(`Subject name ${name} not found.`);
     }
@@ -52,7 +52,7 @@ export class Syllabus {
     };
   }
 
-  static readonly subjects: Subject[] = [
+  static readonly mockSubjects: Subject[] = [
     Syllabus.generateSubject('科目A', [], [], ['科目B', '科目D']),
     Syllabus.generateSubject('科目B', [], [], ['科目D']),
     Syllabus.generateSubject('科目C', [], [], ['科目E']),
@@ -64,7 +64,7 @@ export class Syllabus {
   ];
 
   static getSubjectById(id: string): Subject {
-    const filteredSubject: Subject[] = Syllabus.subjects.filter((subject) => {
+    const filteredSubject: Subject[] = Syllabus.mockSubjects.filter((subject) => {
       return subject.id === id;
     });
     if (filteredSubject.length === 0) {
@@ -96,7 +96,7 @@ export class Syllabus {
           queue.push(recommendedPrerequisite);
         }
       });
-      Syllabus.subjects.forEach((subject) => {
+      Syllabus.mockSubjects.forEach((subject) => {
         if (subject.recommendedSuccessors.includes(queue[0].id) && !includes(subject)) {
           queue.push(subject);
         }
@@ -122,7 +122,7 @@ export class Syllabus {
           queue.push(recommendedSuccessor);
         }
       });
-      Syllabus.subjects.forEach((subject) => {
+      Syllabus.mockSubjects.forEach((subject) => {
         if (subject.highlyRecommendedPrerequisites.includes(queue[0].id) && !includes(subject)) {
           queue.push(subject);
         } else if (subject.recommendedPrerequisites.includes(queue[0].id) && !includes(subject)) {
