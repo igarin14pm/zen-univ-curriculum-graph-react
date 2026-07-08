@@ -28,7 +28,7 @@ const GlobalGraphButton = (): React.JSX.Element => {
 
 const PageList = (): React.JSX.Element => {
   return (
-    <ul>
+    <ul className={style.pageList}>
       <li><Link to="/subject">科目</Link></li>
       <li><Link to="/report-bugs">不具合を報告する</Link></li>
     </ul>
