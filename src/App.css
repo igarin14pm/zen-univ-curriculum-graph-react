@@ -2,7 +2,7 @@
 
 :root {
   --line-height: 1.65;
-  --main-standard-margin-vertical: calc(1rem * var(--line-height));
+  --standard-margin-vertical: calc(1rem * var(--line-height));
 }
 
 * {
@@ -34,7 +34,7 @@ h1 {
   font-weight: 800;
 
   margin-top: calc(3rem * var(--line-height));
-  margin-bottom: var(--main-standard-margin-vertical);
+  margin-bottom: var(--standard-margin-vertical);
 }
 
 h2 {
@@ -42,7 +42,7 @@ h2 {
   font-weight: 700;
 
   margin-top: calc(2rem * var(--line-height));
-  margin-bottom: var(--main-standard-margin-vertical);
+  margin-bottom: var(--standard-margin-vertical);
 }
 
 li {
@@ -51,5 +51,5 @@ li {
 }
 
 ul {
-  margin: var(--main-standard-margin-vertical) 0;
+  margin: var(--standard-margin-vertical) 0;
 }
