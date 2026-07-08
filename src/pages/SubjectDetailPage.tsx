@@ -94,22 +94,26 @@ class TargetSubjects {
   }
 }
 
-const SourceSubjectTagDescription = (): React.JSX.Element => {
+interface TagDescriptionProp {
+  subjectName: string
+}
+
+const SourceSubjectTagDescription = ({ subjectName }: TagDescriptionProp): React.JSX.Element => {
   return (
     <p className={style.tagDescription}>
-      <HighlyRecommendedTag />: この科目の前に履修することが強く推奨されている科目<br />
-      <PrerequisiteTag />: この科目の前提科目<br />
-      無印: この科目が後継科目として設定されている科目
+      <HighlyRecommendedTag />: &quot;{subjectName}&quot; の前に履修することが強く推奨されている科目<br />
+      <PrerequisiteTag />: &quot;{subjectName}&quot; の前提科目<br />
+      無印: &quot;{subjectName}&quot; が後継科目として設定されている科目
     </p>
   );
 };
 
-const TargetSubjectTagDescription = (): React.JSX.Element => {
+const TargetSubjectTagDescription = ({ subjectName }: TagDescriptionProp): React.JSX.Element => {
   return (
     <p className={style.tagDescription}>
-      <HighlyRecommendedTag />: この科目の後に履修することが強く推奨されている科目<br />
-      <PrerequisiteTag />: この科目が前提科目として設定されている科目<br />
-      無印: この科目の後継科目
+      <HighlyRecommendedTag />: &quot;{subjectName}&quot; の後に履修することが強く推奨されている科目<br />
+      <PrerequisiteTag />: &quot;{subjectName}&quot; が前提科目として設定されている科目<br />
+      無印: &quot;{subjectName}&quot; の後継科目
     </p>
   );
 };
@@ -137,7 +141,7 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
           isHighlyRecommended={false} 
         />
       </ul>
-      {sourceSubjects.isEmpty ? <p>(なし)</p> : <SourceSubjectTagDescription />}
+      {sourceSubjects.isEmpty ? <p>(なし)</p> : <SourceSubjectTagDescription subjectName={subject.name} />}
       <h2>この後に履修すべき科目</h2>
       <ul>
         <ListItems
@@ -156,7 +160,7 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
           isHighlyRecommended={false}
         />
       </ul>
-      {targetSubjects.isEmpty ? <p>(なし)</p> : <TargetSubjectTagDescription />}
+      {targetSubjects.isEmpty ? <p>(なし)</p> : <TargetSubjectTagDescription subjectName={subject.name} />}
     </PageLayout>
   );
 };
