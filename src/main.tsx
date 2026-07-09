@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import App from './app/App';
-import HomePage from './pages/HomePage';
+import HomePage from './app/pages/home-page/HomePage';
 import ReportBugsPage from './pages/ReportBugsPage';
 import { StrictMode } from 'react';
 import SubjectDetailPage from './pages/SubjectDetailPage';
