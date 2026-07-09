@@ -1,7 +1,7 @@
 import './normalize.css';
 import './App.css';
 import { Outlet } from 'react-router';
-import Sidebar from './components/Sidebar';
+import Sidebar from '../components/Sidebar';
 import style from './App.module.css';
 
 const App = (): React.JSX.Element => {
