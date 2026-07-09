@@ -1,4 +1,4 @@
-import PageLayout from '../components/PageLayout';
+import PageLayout from '../PageLayout';
 
 const HomePage = (): React.JSX.Element => {
   return (

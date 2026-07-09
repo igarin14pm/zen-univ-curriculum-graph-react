@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
-import App from './App';
-import HomePage from './pages/HomePage';
-import ReportBugsPage from './pages/ReportBugsPage';
+import App from './app/App';
+import HomePage from './app/pages/home-page/HomePage';
+import ReportBugsPage from './app/pages/report-bugs-page/ReportBugsPage';
 import { StrictMode } from 'react';
-import SubjectDetailPage from './pages/SubjectDetailPage';
-import SubjectPage from './pages/SubjectPage';
+import SubjectDetailPage from './app/pages/subject-detail-page/SubjectDetailPage';
+import SubjectPage from './app/pages/subject-page/SubjectPage';
 import { Syllabus } from './data/syllabus';
 import { createRoot } from 'react-dom/client';
 

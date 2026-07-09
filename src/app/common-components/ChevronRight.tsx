@@ -1,6 +1,8 @@
-import { type ChevronProp } from './ChevronProp';
+export interface ChevronRightProp {
+  className: string;
+}
 
-const ChevronRight = ({ className }: ChevronProp): React.JSX.Element => {
+const ChevronRight = ({ className }: ChevronRightProp): React.JSX.Element => {
   return (
     <svg 
       className={className}

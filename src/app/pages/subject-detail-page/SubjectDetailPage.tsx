@@ -1,38 +1,10 @@
-import { type RefObject, useEffect, useRef } from 'react';
-import { type Subject, Syllabus } from '../data/syllabus';
-import { Link } from 'react-router';
-import PageLayout from '../components/PageLayout';
-import { SourceSubjectGraph } from '../graph/source-subject-graph';
-import { TargetSubjectGraph } from '../graph/target-subject-graph';
-import style from './SubjectDetailPage.module.css';
-
-const PrerequisiteTag = (): React.JSX.Element => {
-  return <span className={style.prerequisiteTag}>前提</span>;
-};
-
-const HighlyRecommendedTag = (): React.JSX.Element => {
-  return <span className={style.highlyRecommendedTag}>強く推奨</span>;
-};
-
-interface ListItemsProp {
-  subjects: Subject[];
-  isPrerequisite: boolean;
-  isHighlyRecommended: boolean;
-}
-
-const ListItems = ({ subjects, isPrerequisite, isHighlyRecommended }: ListItemsProp): React.JSX.Element[] => {
-  return subjects.map((subject) => {
-    return (
-      <li key={subject.id}>
-        <Link to={`/subject/${subject.id}`}>
-          {subject.name}
-        </Link>
-        {isPrerequisite && <PrerequisiteTag />}
-        {isHighlyRecommended && <HighlyRecommendedTag />}
-      </li>
-    );
-  });
-};
+import { type Subject, Syllabus } from '../../../data/syllabus';
+import PageLayout from '../PageLayout';
+import RelatedSubjectListItems from './components/RelatedSubjectListItems';
+import SourceSubjectGraphContainer from './components/SourceSubjectGraphContainer';
+import SourceSubjectTagDescription from './components/SourceSubjectTagDescription';
+import TargetSubjectGraphContainer from './components/TargetSubjectGraphContainer';
+import TargetSubjectTagDescription from './components/TargetSubjectTagDescription';
 
 class SourceSubjects {
   highlyRecommendedPrerequisites: Subject[];
@@ -92,76 +64,29 @@ class TargetSubjects {
   }
 }
 
-interface TagDescriptionProp {
-  subjectName: string
-}
-
-const SourceSubjectTagDescription = ({ subjectName }: TagDescriptionProp): React.JSX.Element => {
-  return (
-    <p className={style.tagDescription}>
-      <HighlyRecommendedTag />: &quot;{subjectName}&quot; の前に履修することが強く推奨されている科目<br />
-      <PrerequisiteTag />: &quot;{subjectName}&quot; の前提科目<br />
-      無印: &quot;{subjectName}&quot; が後継科目として設定されている科目
-    </p>
-  );
-};
-
-const TargetSubjectTagDescription = ({ subjectName }: TagDescriptionProp): React.JSX.Element => {
-  return (
-    <p className={style.tagDescription}>
-      <HighlyRecommendedTag />: &quot;{subjectName}&quot; の後に履修することが強く推奨されている科目<br />
-      <PrerequisiteTag />: &quot;{subjectName}&quot; が前提科目として設定されている科目<br />
-      無印: &quot;{subjectName}&quot; の後継科目
-    </p>
-  );
-};
-
-interface SubjectGraphContainerProp {
-  currentlyViewingSubject: Subject;
-}
-
-const SourceSubjectGraphContainer = ({ currentlyViewingSubject }: SubjectGraphContainerProp): React.JSX.Element => {
-  const conatinerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (conatinerRef.current != null) {
-      SourceSubjectGraph.initialize(conatinerRef.current, currentlyViewingSubject);
-    }
-  });
-  return <div className={style.graphContainer} ref={conatinerRef}></div>;
-};
-
-const TargetSubjectGraphContainer = ({ currentlyViewingSubject }: SubjectGraphContainerProp): React.JSX.Element => {
-  const containerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (containerRef.current != null) {
-      TargetSubjectGraph.initialize(containerRef.current, currentlyViewingSubject);
-    }
-  });
-  return <div className={style.graphContainer} ref={containerRef}></div>;
-};
-
 interface SubjectDetailPageProp {
   subject: Subject;
 }
 
 const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Element => {
- const sourceSubjects = new SourceSubjects(subject);
- const targetSubjects = new TargetSubjects(subject);
+  const sourceSubjects = new SourceSubjects(subject);
+  const targetSubjects = new TargetSubjects(subject);
+
   return (
     <PageLayout title={subject.name}>
       <h2>この前に履修すべき科目</h2>
       <ul>
-        <ListItems 
+        <RelatedSubjectListItems 
           subjects={sourceSubjects.highlyRecommendedPrerequisites} 
           isPrerequisite={true}
           isHighlyRecommended={true}
         />
-        <ListItems
+        <RelatedSubjectListItems
           subjects={sourceSubjects.recommendedPrerequisites}
           isPrerequisite={true}
           isHighlyRecommended={false}
         />
-        <ListItems
+        <RelatedSubjectListItems
           subjects={sourceSubjects.recommendedSuccessors}
           isPrerequisite={false}
           isHighlyRecommended={false} 
@@ -172,17 +97,17 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
       <SourceSubjectGraphContainer currentlyViewingSubject={subject} />
       <h2>この後に履修すべき科目</h2>
       <ul>
-        <ListItems
+        <RelatedSubjectListItems
           subjects={targetSubjects.highlyRecommendedPrerequisites}
           isPrerequisite={true}
           isHighlyRecommended={true}
         />
-        <ListItems
+        <RelatedSubjectListItems
           subjects={targetSubjects.recommendedPrerequisites}
           isPrerequisite={true}
           isHighlyRecommended={false}
         />
-        <ListItems
+        <RelatedSubjectListItems
           subjects={targetSubjects.recommendedSuccessors}
           isPrerequisite={false}
           isHighlyRecommended={false}

@@ -1,22 +1,3 @@
-.siteNameLink {
-  text-decoration: none;
-}
-
-.siteLogo {
-  height: 100px;
-}
-
-.siteNameText {
-  color: #030363;
-  font-size: 1.5rem;
-  margin-top: 0;
-}
-
-.pageList {
-  padding: 0;
-  list-style-type: none;
-}
-
 .globalGraphButton {
   width: 100%;
   background-color: #030363;
@@ -51,10 +32,4 @@
 
 .globalGraphButton:hover .globalGraphButtonChevron {
   transform: translateX(50%);
-}
-
-.sidebarContainer {
-  margin: 50px 10px;
-  width: 280px;
-  height: 100%;
 }
