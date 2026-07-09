@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import App from './app/App';
 import HomePage from './app/pages/home-page/HomePage';
-import ReportBugsPage from './pages/ReportBugsPage';
+import ReportBugsPage from './app/pages/report-bugs-page/ReportBugsPage';
 import { StrictMode } from 'react';
 import SubjectDetailPage from './pages/SubjectDetailPage';
 import SubjectPage from './pages/SubjectPage';

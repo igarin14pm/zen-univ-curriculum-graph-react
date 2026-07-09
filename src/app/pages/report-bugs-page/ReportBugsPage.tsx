@@ -1,4 +1,4 @@
-import PageLayout from '../app/pages/PageLayout';
+import PageLayout from '../PageLayout';
 
 const ReportBugsPage = (): React.JSX.Element => {
   return (
