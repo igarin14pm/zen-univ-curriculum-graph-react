@@ -1,7 +1,7 @@
 import { type RefObject, useEffect, useRef } from 'react';
 import { type Subject, Syllabus } from '../data/syllabus';
 import { Link } from 'react-router';
-import PageLayout from '../components/PageLayout';
+import PageLayout from '../app/pages/PageLayout';
 import { SourceSubjectGraph } from '../graph/source-subject-graph';
 import { TargetSubjectGraph } from '../graph/target-subject-graph';
 import style from './SubjectDetailPage.module.css';

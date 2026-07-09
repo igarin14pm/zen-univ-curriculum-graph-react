@@ -1,4 +1,4 @@
-import PageLayout from '../components/PageLayout';
+import PageLayout from '../app/pages/PageLayout';
 
 const SubjectPage = (): React.JSX.Element => {
   return (
