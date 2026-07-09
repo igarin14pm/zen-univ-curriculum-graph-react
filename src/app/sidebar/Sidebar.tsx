@@ -1,6 +1,6 @@
-import ChevronRight from '../app/common-components/ChevronRight';
+import ChevronRight from '../common-components/ChevronRight';
 import { Link } from 'react-router';
-import logoImage from '../img/logo.svg';
+import logoImage from './img/logo.svg';
 import style from './Sidebar.module.css';
 
 const SiteName = (): React.JSX.Element => {
