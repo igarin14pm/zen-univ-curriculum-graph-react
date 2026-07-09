@@ -1,4 +1,4 @@
-import ChevronRight from './ChevronRight';
+import ChevronRight from '../app/common-components/ChevronRight';
 import { Link } from 'react-router';
 import logoImage from '../img/logo.svg';
 import style from './Sidebar.module.css';
