@@ -1,6 +1,9 @@
+import { type RefObject, useEffect, useRef } from 'react';
 import { type Subject, Syllabus } from '../data/syllabus';
 import { Link } from 'react-router';
 import PageLayout from '../components/PageLayout';
+import { SourceSubjectGraph } from '../graph/source-subject-graph';
+import { TargetSubjectGraph } from '../graph/target-subject-graph';
 import style from './SubjectDetailPage.module.css';
 
 const PrerequisiteTag = (): React.JSX.Element => {
@@ -30,11 +33,6 @@ const ListItems = ({ subjects, isPrerequisite, isHighlyRecommended }: ListItemsP
     );
   });
 };
-
-interface SubjectDetailPageProp {
-  subject: Subject;
-}
-
 
 class SourceSubjects {
   highlyRecommendedPrerequisites: Subject[];
@@ -118,6 +116,34 @@ const TargetSubjectTagDescription = ({ subjectName }: TagDescriptionProp): React
   );
 };
 
+interface SubjectGraphContainerProp {
+  currentlyViewingSubject: Subject;
+}
+
+const SourceSubjectGraphContainer = ({ currentlyViewingSubject }: SubjectGraphContainerProp): React.JSX.Element => {
+  const conatinerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (conatinerRef.current != null) {
+      SourceSubjectGraph.initialize(conatinerRef.current, currentlyViewingSubject);
+    }
+  });
+  return <div className={style.graphContainer} ref={conatinerRef}></div>;
+};
+
+const TargetSubjectGraphContainer = ({ currentlyViewingSubject }: SubjectGraphContainerProp): React.JSX.Element => {
+  const containerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (containerRef.current != null) {
+      TargetSubjectGraph.initialize(containerRef.current, currentlyViewingSubject);
+    }
+  });
+  return <div className={style.graphContainer} ref={containerRef}></div>;
+};
+
+interface SubjectDetailPageProp {
+  subject: Subject;
+}
+
 const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Element => {
  const sourceSubjects = new SourceSubjects(subject);
  const targetSubjects = new TargetSubjects(subject);
@@ -142,6 +168,8 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
         />
       </ul>
       {sourceSubjects.isEmpty ? <p>(なし)</p> : <SourceSubjectTagDescription subjectName={subject.name} />}
+      <h3>グラフ</h3>
+      <SourceSubjectGraphContainer currentlyViewingSubject={subject} />
       <h2>この後に履修すべき科目</h2>
       <ul>
         <ListItems
@@ -161,6 +189,8 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
         />
       </ul>
       {targetSubjects.isEmpty ? <p>(なし)</p> : <TargetSubjectTagDescription subjectName={subject.name} />}
+      <h3>グラフ</h3>
+      <TargetSubjectGraphContainer currentlyViewingSubject={subject} />
     </PageLayout>
   );
 };
