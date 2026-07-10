@@ -1,10 +1,10 @@
-import PageLayout from '../PageLayout';
+import PageContainer from '../PageContainer';
 
 const HomePage = (): React.JSX.Element => {
   return (
-    <PageLayout title="Home">
+    <PageContainer title="Home">
       <p>Home</p>
-    </PageLayout>
+    </PageContainer>
   );
 };
 

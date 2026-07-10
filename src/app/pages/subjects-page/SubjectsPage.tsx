@@ -1,10 +1,10 @@
-import PageLayout from '../PageLayout';
+import PageContainer from '../PageContainer';
 
 const SubjectsPage = (): React.JSX.Element => {
   return (
-    <PageLayout title="科目">
+    <PageContainer title="科目">
       <p>(subjects)</p>
-    </PageLayout>
+    </PageContainer>
   );
 };
 

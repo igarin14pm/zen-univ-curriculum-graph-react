@@ -1,10 +1,10 @@
-import PageLayout from '../PageLayout';
+import PageContainer from '../PageContainer';
 
 const ReportBugsPage = (): React.JSX.Element => {
   return (
-    <PageLayout title="不具合を報告する">
+    <PageContainer title="不具合を報告する">
       <p>(Report bugs)</p>
-    </PageLayout>
+    </PageContainer>
   );
 };
 
