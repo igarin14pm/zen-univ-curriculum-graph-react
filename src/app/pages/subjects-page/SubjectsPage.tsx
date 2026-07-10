@@ -1,6 +1,6 @@
 import PageLayout from '../PageLayout';
 
-const SubjectPage = (): React.JSX.Element => {
+const SubjectsPage = (): React.JSX.Element => {
   return (
     <PageLayout title="科目">
       <p>(subjects)</p>
@@ -8,4 +8,4 @@ const SubjectPage = (): React.JSX.Element => {
   );
 };
 
-export default SubjectPage;
+export default SubjectsPage;

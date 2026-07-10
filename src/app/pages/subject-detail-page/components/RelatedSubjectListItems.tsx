@@ -13,7 +13,7 @@ const RelatedSubjectListItems = ({ subjects, isPrerequisite, isHighlyRecommended
   return subjects.map((subject) => {
     return (
       <li key={subject.id}>
-        <Link to={`/subject/${subject.id}`}>
+        <Link to={`/subjects/${subject.id}`}>
           {subject.name}
         </Link>
         {isPrerequisite && <PrerequisiteTag />}
