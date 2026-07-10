@@ -1,5 +1,5 @@
 import { type Subject, Syllabus } from '../../../data/syllabus';
-import PageLayout from '../PageLayout';
+import PageContainer from '../PageContainer';
 import RelatedSubjectListItems from './components/RelatedSubjectListItems';
 import SourceSubjectGraphContainer from './components/SourceSubjectGraphContainer';
 import SourceSubjectTagDescription from './components/SourceSubjectTagDescription';
@@ -73,7 +73,7 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
   const targetSubjects = new TargetSubjects(subject);
 
   return (
-    <PageLayout title={subject.name}>
+    <PageContainer title={subject.name}>
       <h2>この前に履修すべき科目</h2>
       <ul>
         <RelatedSubjectListItems 
@@ -116,7 +116,7 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
       {targetSubjects.isEmpty ? <p>(なし)</p> : <TargetSubjectTagDescription subjectName={subject.name} />}
       <h3>グラフ</h3>
       <TargetSubjectGraphContainer currentlyViewingSubject={subject} />
-    </PageLayout>
+    </PageContainer>
   );
 };
 
