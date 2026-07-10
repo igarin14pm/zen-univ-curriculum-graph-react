@@ -5,7 +5,7 @@ import type cytoscape from 'cytoscape';
 
 export class SourceSubjectGraph {
 
-  static getGraphSubjects(currentlyViewingSubject: Subject): Subject[] {
+  static getGraphSubjects(syllabus: Syllabus, currentlyViewingSubject: Subject): Subject[] {
     const queue: Subject[] = [currentlyViewingSubject];
     const result: Subject[] = [];
 
@@ -14,20 +14,20 @@ export class SourceSubjectGraph {
     }
 
     while (queue.length > 0) {
-      queue[0].highlyRecommendedPrerequisites.forEach((highlyRecommendedPrerequisiteId) => {
-        const highlyRecommendedPrerequisite: Subject = Syllabus.getSubjectById(highlyRecommendedPrerequisiteId);
+      queue[0].highlyRecommendedPrerequisiteIds.forEach((highlyRecommendedPrerequisiteId) => {
+        const highlyRecommendedPrerequisite: Subject = syllabus.getSubjectById(highlyRecommendedPrerequisiteId);
         if (!includes(highlyRecommendedPrerequisite)) {
           queue.push(highlyRecommendedPrerequisite);
         }
       });
-      queue[0].recommendedPrerequisites.forEach((recommendedPrerequisiteId) => {
-        const recommendedPrerequisite: Subject = Syllabus.getSubjectById(recommendedPrerequisiteId);
+      queue[0].recommendedPrerequisiteIds.forEach((recommendedPrerequisiteId) => {
+        const recommendedPrerequisite: Subject = syllabus.getSubjectById(recommendedPrerequisiteId);
         if (!includes(recommendedPrerequisite)) {
           queue.push(recommendedPrerequisite);
         }
       });
-      Syllabus.mockSubjects.forEach((subject) => {
-        if (subject.recommendedSuccessors.includes(queue[0].id) && !includes(subject)) {
+      syllabus.subjects.forEach((subject) => {
+        if (subject.recommendedSuccessorIds.includes(queue[0].id) && !includes(subject)) {
           queue.push(subject);
         }
       });
@@ -37,8 +37,8 @@ export class SourceSubjectGraph {
     return result;
   }
 
-  static initialize(container: HTMLDivElement, currentlyViewingSubject: Subject): void {
-    const subjects: Subject[] = SourceSubjectGraph.getGraphSubjects(currentlyViewingSubject);
+  static initialize(container: HTMLDivElement, syllabus: Syllabus, currentlyViewingSubject: Subject): void {
+    const subjects: Subject[] = SourceSubjectGraph.getGraphSubjects(syllabus, currentlyViewingSubject);
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
     SubjectGraph.initialize(container, elements);
   }

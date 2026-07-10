@@ -34,7 +34,7 @@ export class SubjectNodeEdgeConverter {
     }
     
     subjects.forEach((subject) => {
-      subject.highlyRecommendedPrerequisites.forEach((sourceId) => {
+      subject.highlyRecommendedPrerequisiteIds.forEach((sourceId) => {
         if (hasNodes(sourceId, subject.id)) {
           edges.push({
           data: {
@@ -48,7 +48,7 @@ export class SubjectNodeEdgeConverter {
       });
     });
     subjects.forEach((subject) => {
-      subject.recommendedPrerequisites.forEach((sourceId) => {
+      subject.recommendedPrerequisiteIds.forEach((sourceId) => {
         if (hasNodes(sourceId, subject.id) && !edgeAlreadyExists(sourceId, subject.id)) {
           edges.push({
             data: {
@@ -62,7 +62,7 @@ export class SubjectNodeEdgeConverter {
       });
     });
     subjects.forEach((subject) => {
-      subject.recommendedSuccessors.forEach((targetId) => {
+      subject.recommendedSuccessorIds.forEach((targetId) => {
         if (hasNodes(subject.id, targetId) && !edgeAlreadyExists(subject.id, targetId)) {
           edges.push({
             data: {
