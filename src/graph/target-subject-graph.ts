@@ -5,7 +5,7 @@ import cytoscape from 'cytoscape';
 
 export class TargetSubjectGraph {
 
-  static getGraphSubjects(currentlyViewingSubject: Subject): Subject[] {
+  static getGraphSubjects(syllabus: Syllabus, currentlyViewingSubject: Subject): Subject[] {
     const queue: Subject[] = [currentlyViewingSubject];
     const result: Subject[] = [];
 
@@ -14,16 +14,16 @@ export class TargetSubjectGraph {
     }
 
     while (queue.length > 0) {
-      queue[0].recommendedSuccessors.forEach((recommendedSuccessorId) => {
-        const recommendedSuccessor: Subject = Syllabus.getSubjectById(recommendedSuccessorId);
+      queue[0].recommendedSuccessorIds.forEach((recommendedSuccessorId) => {
+        const recommendedSuccessor: Subject = syllabus.getSubjectById(recommendedSuccessorId);
         if (!includes(recommendedSuccessor)) {
           queue.push(recommendedSuccessor);
         }
       });
-      Syllabus.mockSubjects.forEach((subject) => {
-        if (subject.highlyRecommendedPrerequisites.includes(queue[0].id) && !includes(subject)) {
+      syllabus.subjects.forEach((subject) => {
+        if (subject.highlyRecommendedPrerequisiteIds.includes(queue[0].id) && !includes(subject)) {
           queue.push(subject);
-        } else if (subject.recommendedPrerequisites.includes(queue[0].id) && !includes(subject)) {
+        } else if (subject.recommendedPrerequisiteIds.includes(queue[0].id) && !includes(subject)) {
           queue.push(subject);
         }
       });
@@ -33,8 +33,8 @@ export class TargetSubjectGraph {
     return result;
   }
 
-  static initialize(container: HTMLDivElement, currentlyViewingSubject: Subject): void {
-    const subjects: Subject[] = TargetSubjectGraph.getGraphSubjects(currentlyViewingSubject);
+  static initialize(container: HTMLDivElement, syllabus: Syllabus, currentlyViewingSubject: Subject): void {
+    const subjects: Subject[] = TargetSubjectGraph.getGraphSubjects(syllabus, currentlyViewingSubject);
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
     SubjectGraph.initialize(container, elements);
   }

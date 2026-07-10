@@ -18,17 +18,17 @@ class SourceSubjects {
     return highlyRecommendedPrerequisitesResult && recommendedPrerequisitesResult && recommendedSuccessorsResult;
   }
   
-  constructor(subject: Subject) {
-    this.highlyRecommendedPrerequisites = subject.highlyRecommendedPrerequisites.map((id) => {
-      return Syllabus.getSubjectById(id);
+  constructor(syllabus: Syllabus, subject: Subject) {
+    this.highlyRecommendedPrerequisites = subject.highlyRecommendedPrerequisiteIds.map((id) => {
+      return syllabus.getSubjectById(id);
     });
-    this.recommendedPrerequisites = subject.recommendedPrerequisites.map((id) => {
-      return Syllabus.getSubjectById(id);
+    this.recommendedPrerequisites = subject.recommendedPrerequisiteIds.map((id) => {
+      return syllabus.getSubjectById(id);
     }).filter((subjectToFilter) => {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter);
     });
-    this.recommendedSuccessors = Syllabus.mockSubjects.filter((subjectToFilter) => {
-      return subjectToFilter.recommendedSuccessors.includes(subject.id);
+    this.recommendedSuccessors = syllabus.subjects.filter((subjectToFilter) => {
+      return subjectToFilter.recommendedSuccessorIds.includes(subject.id);
     }).filter((subjectToFilter) => {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter) && !this.recommendedPrerequisites.includes(subjectToFilter);
     });
@@ -47,17 +47,17 @@ class TargetSubjects {
     return highlyRecommendedPrerequisitesResult && recommendedPrerequisitesResult && recommendedSuccessorsResult;
   }
 
-  constructor(subject: Subject) {
-    this.highlyRecommendedPrerequisites = Syllabus.mockSubjects.filter((subjectToFilter) => {
-      return subjectToFilter.highlyRecommendedPrerequisites.includes(subject.id);
+  constructor(syllabus: Syllabus, subject: Subject) {
+    this.highlyRecommendedPrerequisites = syllabus.subjects.filter((subjectToFilter) => {
+      return subjectToFilter.highlyRecommendedPrerequisiteIds.includes(subject.id);
     });
-    this.recommendedPrerequisites = Syllabus.mockSubjects.filter((subjectToFilter) => {
-      return subjectToFilter.recommendedPrerequisites.includes(subject.id);
+    this.recommendedPrerequisites = syllabus.subjects.filter((subjectToFilter) => {
+      return subjectToFilter.recommendedPrerequisiteIds.includes(subject.id);
     }).filter((subjectToFilter) => {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter);
     });
-    this.recommendedSuccessors = subject.recommendedSuccessors.map((id) => {
-      return Syllabus.getSubjectById(id);
+    this.recommendedSuccessors = subject.recommendedSuccessorIds.map((id) => {
+      return syllabus.getSubjectById(id);
     }).filter((subjectToFilter) => {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter) && !this.recommendedPrerequisites.includes(subjectToFilter);
     });
@@ -65,12 +65,13 @@ class TargetSubjects {
 }
 
 interface SubjectDetailPageProp {
+  syllabus: Syllabus;
   subject: Subject;
 }
 
-const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Element => {
-  const sourceSubjects = new SourceSubjects(subject);
-  const targetSubjects = new TargetSubjects(subject);
+const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProp): React.JSX.Element => {
+  const sourceSubjects = new SourceSubjects(syllabus, subject);
+  const targetSubjects = new TargetSubjects(syllabus, subject);
 
   return (
     <PageContainer title={subject.name}>
@@ -94,7 +95,7 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
       </ul>
       {sourceSubjects.isEmpty ? <p>(なし)</p> : <SourceSubjectTagDescription subjectName={subject.name} />}
       <h3>グラフ</h3>
-      <SourceSubjectGraphContainer currentlyViewingSubject={subject} />
+      <SourceSubjectGraphContainer syllabus={syllabus} currentlyViewingSubject={subject} />
       <h2>この後に履修すべき科目</h2>
       <ul>
         <RelatedSubjectListItems
@@ -115,7 +116,7 @@ const SubjectDetailPage = ({ subject }: SubjectDetailPageProp): React.JSX.Elemen
       </ul>
       {targetSubjects.isEmpty ? <p>(なし)</p> : <TargetSubjectTagDescription subjectName={subject.name} />}
       <h3>グラフ</h3>
-      <TargetSubjectGraphContainer currentlyViewingSubject={subject} />
+      <TargetSubjectGraphContainer syllabus={syllabus} currentlyViewingSubject={subject} />
     </PageContainer>
   );
 };
