@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+.pre {
+  background-color: #333355;
+  margin: var(--standard-margin-vertical) 0;
+  border: solid 1px #222244;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.code {
+  color: #eeeeff;
+  font-family: 'JetBrains Mono', monospace;
+}
