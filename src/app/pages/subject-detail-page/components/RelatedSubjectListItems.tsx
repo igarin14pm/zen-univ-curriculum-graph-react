@@ -3,13 +3,13 @@ import PrerequisiteTag from './PrerequisiteTag';
 import ScrollToTopLink from '../../../common-components/ScrollToTopLink';
 import { type Subject } from '../../../../data/syllabus';
 
-interface ListItemsProp {
+interface RelatedSubjectListItemsProp {
   subjects: Subject[];
   isPrerequisite: boolean;
   isHighlyRecommended: boolean;
 }
 
-const RelatedSubjectListItems = ({ subjects, isPrerequisite, isHighlyRecommended }: ListItemsProp): React.JSX.Element[] => {
+const RelatedSubjectListItems = ({ subjects, isPrerequisite, isHighlyRecommended }: RelatedSubjectListItemsProp): React.JSX.Element[] => {
   return subjects.map((subject) => {
     return (
       <li key={subject.id}>
