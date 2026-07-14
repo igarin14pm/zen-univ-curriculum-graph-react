@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  margin: var(--standard-margin-vertical) 0;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: calc(0.5rem * var(--line-height)) 0;
+}
+
+.input {
+  display: block;
+  margin: calc(0.5rem * var(--line-height)) 0;
+  border: solid 1px #030363;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  box-shadow: 0 0 0 #bbbbbb;
+  font-size: 1rem;
+  transition: box-shadow 0.2s ease-out, border 0.2s ease-out, padding 0.2s ease-out;
+}
+
+.input:focus {
+  box-shadow: 0 4px 7.5px #bbbbbb;
+}
+
+.input:hover {
+  box-shadow: 0 6px 10px #bbbbbb;
+}
+
+.input::placeholder {
+  color: #666666;
+  font-weight: 300;
+}
