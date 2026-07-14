@@ -1,8 +1,8 @@
 import PageContainer from '../PageContainer';
 import SearchBox from './components/SearchBox';
-import { type SetStateValue } from '../../../utils/set-state-value';
 import SubjectLinkList from './components/SubjectLinkList';
 import { Syllabus } from '../../../data/syllabus';
+import { type UseStateValue } from '../../../utils/use-state-value';
 import { useState } from 'react';
 
 interface SubjectsPageProp {
@@ -10,7 +10,7 @@ interface SubjectsPageProp {
 }
 
 const SubjectsPage = ({ syllabus }: SubjectsPageProp): React.JSX.Element => {
-  const [query, setQuery]: SetStateValue<string> = useState('');
+  const [query, setQuery]: UseStateValue<string> = useState('');
 
   return (
     <PageContainer title="科目">
