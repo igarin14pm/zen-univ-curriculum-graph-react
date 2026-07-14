@@ -29,3 +29,8 @@
 .input:hover {
   box-shadow: 0 6px 10px #bbbbbb;
 }
+
+.input::placeholder {
+  color: #666666;
+  font-weight: 300;
+}

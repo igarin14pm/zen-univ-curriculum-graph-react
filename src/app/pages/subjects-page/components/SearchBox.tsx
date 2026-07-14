@@ -12,11 +12,12 @@ const SearchBox = ({ setQuery }: SearchBoxProp): React.JSX.Element => {
   return (
     <div>
       <label className={style.label} htmlFor="search-box">
-        検索
+        科目を検索
       </label>
       <input
         id="search-box"
         className={style.input}
+        placeholder='検索'
         type="search"
         onChange={handleChange}
       />
