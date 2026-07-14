@@ -1,6 +1,6 @@
 import HighlyRecommendedTag from './HighlyRecommendedTag';
-import { Link } from 'react-router';
 import PrerequisiteTag from './PrerequisiteTag';
+import ScrollToTopLink from '../../../common-components/ScrollToTopLink';
 import { type Subject } from '../../../../data/syllabus';
 
 interface ListItemsProp {
@@ -13,9 +13,9 @@ const RelatedSubjectListItems = ({ subjects, isPrerequisite, isHighlyRecommended
   return subjects.map((subject) => {
     return (
       <li key={subject.id}>
-        <Link to={`/subjects/${subject.id}`}>
+        <ScrollToTopLink to={`/subjects/${subject.id}`}>
           {subject.name}
-        </Link>
+        </ScrollToTopLink>
         {isPrerequisite && <PrerequisiteTag />}
         {isHighlyRecommended && <HighlyRecommendedTag />}
       </li>
