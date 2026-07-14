@@ -1,14 +1,22 @@
+import Fuse, { type FuseResult } from 'fuse.js';
+import { Subject, Syllabus } from '../../../../data/syllabus';
 import { Link } from 'react-router';
-import { type Subject } from '../../../../data/syllabus';
 import style from './SubjectLinkList.module.css';
 
 interface SubjectLinkListProp {
-  subjects: Subject[]
+  syllabus: Syllabus,
+  searchQuery: string
 }
 
-const SubjectLinkList = ({ subjects }: SubjectLinkListProp): React.JSX.Element => {
-  const listItems: React.JSX.Element[] = subjects.map((subject) => {
-    return <li key={subject.id} className={style.listItem}><Link to={subject.id}>{subject.name}</Link></li>;
+const SubjectLinkList = ({ syllabus, searchQuery }: SubjectLinkListProp): React.JSX.Element => {
+  const fuse = new Fuse(syllabus.subjects, {
+    keys: ['name']
+  });
+
+  const searchResults: FuseResult<Subject>[] = fuse.search(searchQuery);
+
+  const listItems: React.JSX.Element[] = searchResults.map((result) => {
+    return <li key={result.item.id} className={style.listItem}><Link to={result.item.id}>{result.item.name}</Link></li>;
   });
 
   return (
