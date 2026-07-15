@@ -1,4 +1,5 @@
 import { type Subject, Syllabus } from '../data/syllabus';
+import { type NavigateFunction } from 'react-router';
 import { SubjectGraph } from './subject-graph';
 import { SubjectNodeEdgeConverter } from './subject-node-edge-converter';
 import type cytoscape from 'cytoscape';
@@ -37,10 +38,15 @@ export class SourceSubjectGraph {
     return result;
   }
 
-  static initialize(container: HTMLDivElement, syllabus: Syllabus, currentlyViewingSubject: Subject): void {
+  static initialize(
+    container: HTMLDivElement, 
+    syllabus: Syllabus, 
+    currentlyViewingSubject: Subject,
+    navigate: NavigateFunction
+  ): void {
     const subjects: Subject[] = SourceSubjectGraph.getGraphSubjects(syllabus, currentlyViewingSubject);
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
-    SubjectGraph.initialize(container, elements);
+    SubjectGraph.initialize(container, elements, currentlyViewingSubject.id, navigate);
   }
 
 }

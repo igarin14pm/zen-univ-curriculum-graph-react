@@ -1,3 +1,4 @@
+import { type NavigateFunction } from 'react-router';
 import cytoscape from 'cytoscape';
 
 export class SubjectGraph {
@@ -66,7 +67,12 @@ export class SubjectGraph {
     animate: false
   };
 
-  static initialize(container: HTMLDivElement, elements: cytoscape.ElementDefinition[]): void {
+  static initialize(
+    container: HTMLDivElement, 
+    elements: cytoscape.ElementDefinition[],
+    currentlyViewingSubjectId: string,
+    navigate: NavigateFunction
+  ): void {
     const cy = cytoscape({
       container: container,
       elements: elements,
@@ -81,6 +87,15 @@ export class SubjectGraph {
     });
     cy.maxZoom(maxZoomLevel);
     cy.center();
+
+    cy.on('tap', 'node', (event) => {
+      const node: cytoscape.SingularData = event.target;
+      const subjectNumbering: string = node.id();
+      if (subjectNumbering !== currentlyViewingSubjectId) {
+        navigate(`/subjects/${subjectNumbering}`);
+        window.scrollTo(0, 0);
+      }
+    });
   }
 
 }
