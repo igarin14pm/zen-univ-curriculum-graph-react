@@ -1,0 +1,35 @@
+.globalGraphButton {
+  width: 100%;
+  background-color: #030363;
+  border-radius: 10px;
+  box-shadow: 0 0 0 #bbbbbb;
+  margin: var(--standard-margin-vertical) 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  border: none;
+}
+
+.globalGraphButton:hover {
+  background-color: #050594;
+  box-shadow: 0 6px 10px #bbbbbb;
+}
+
+.globalGraphButtonText {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1
+}
+
+.globalGraphButtonChevron {
+  fill: #ffffff;
+  height: 1.25rem;
+  transition: transform 0.2s ease-out;
+}
+
+.globalGraphButton:hover .globalGraphButtonChevron {
+  transform: translateX(50%);
+}

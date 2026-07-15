@@ -1,0 +1,13 @@
+.siteNameLink {
+  text-decoration: none;
+}
+
+.siteLogo {
+  height: 100px;
+}
+
+.siteNameText {
+  color: #030363;
+  font-size: 1.5rem;
+  margin-top: 0;
+}
