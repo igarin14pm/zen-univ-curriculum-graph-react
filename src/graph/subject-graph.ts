@@ -88,16 +88,14 @@ export class SubjectGraph {
     cy.maxZoom(maxZoomLevel);
     cy.center();
 
-    const eventHandler: cytoscape.EventHandler = (event) => {
+    cy.on('tap', 'node', (event) => {
       const node: cytoscape.SingularData = event.target;
       const subjectNumbering: string = node.id();
       if (subjectNumbering !== currentlyViewingSubjectId) {
         navigate(`/subjects/${subjectNumbering}`);
         window.scrollTo(0, 0);
       }
-    };
-
-    cy.on('tap', 'node', eventHandler);
+    });
   }
 
 }
