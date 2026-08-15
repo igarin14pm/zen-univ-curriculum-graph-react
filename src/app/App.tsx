@@ -14,7 +14,7 @@ const App = (): React.JSX.Element => {
   return (
     <div className={style.appContainer}>
       <Sidebar setIsGlobalGraphVisible={setIsGlobalGraphVisible} />
-      <GlobalGraphDialog isVisible={isGlobalGraphVisible} />
+      <GlobalGraphDialog isVisible={isGlobalGraphVisible} setIsVisible={setIsGlobalGraphVisible} />
       <Outlet />
     </div>
   );
