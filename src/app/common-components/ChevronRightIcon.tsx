@@ -1,8 +1,8 @@
-export interface ChevronRightProp {
+export interface ChevronRightIconProp {
   className: string;
 }
 
-const ChevronRight = ({ className }: ChevronRightProp): React.JSX.Element => {
+const ChevronRightIcon = ({ className }: ChevronRightIconProp): React.JSX.Element => {
   return (
     <svg 
       className={className}
@@ -18,4 +18,4 @@ const ChevronRight = ({ className }: ChevronRightProp): React.JSX.Element => {
   );
 };
 
-export default ChevronRight;
+export default ChevronRightIcon;
