@@ -3,14 +3,13 @@ import ChevronRight from '../../common-components/ChevronRight';
 import style from './GlobalGraphButton.module.css';
 
 interface GlobalGraphButtonProp {
-  isGlobalGraphVisible: boolean;
   setIsGlobalGraphVisible: Dispatch<SetStateAction<boolean>>;
 }
 
-const GlobalGraphButton = ({ isGlobalGraphVisible, setIsGlobalGraphVisible }: GlobalGraphButtonProp): React.JSX.Element => {
+const GlobalGraphButton = ({ setIsGlobalGraphVisible }: GlobalGraphButtonProp): React.JSX.Element => {
 
   const handleClick = () => {
-    setIsGlobalGraphVisible(!isGlobalGraphVisible);
+    setIsGlobalGraphVisible(true);
   };
 
   return (

@@ -5,17 +5,16 @@ import SiteName from './components/SiteName';
 import style from './Sidebar.module.css';
 
 interface SidebarProp {
-  isGlobalGraphVisible: boolean;
   setIsGlobalGraphVisible: Dispatch<SetStateAction<boolean>>;
 }
 
-const Sidebar = ({ isGlobalGraphVisible, setIsGlobalGraphVisible }: SidebarProp): React.JSX.Element => {
+const Sidebar = ({ setIsGlobalGraphVisible }: SidebarProp): React.JSX.Element => {
   return (
     <nav className={style.container}>
       <SiteName />
       <hr />
       <h2>ページ</h2>
-      <GlobalGraphButton isGlobalGraphVisible={isGlobalGraphVisible} setIsGlobalGraphVisible={setIsGlobalGraphVisible} />
+      <GlobalGraphButton setIsGlobalGraphVisible={setIsGlobalGraphVisible} />
       <PageList />
     </nav>
   );
