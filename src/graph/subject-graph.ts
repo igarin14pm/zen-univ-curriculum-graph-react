@@ -70,7 +70,7 @@ export class SubjectGraph {
   static initialize(
     container: HTMLDivElement, 
     elements: cytoscape.ElementDefinition[],
-    currentlyViewingSubjectId: string,
+    currentlyViewingSubjectId: string | null,
     navigate: NavigateFunction
   ): void {
     const cy = cytoscape({

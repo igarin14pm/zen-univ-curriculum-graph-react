@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
-          <Route path="global-graph" element={<GlobalGraphPage />} />
+          <Route path="global-graph" element={<GlobalGraphPage syllabus={syllabus} />} />
           <Route path="report-bugs" element={<ReportBugsPage />} />
           <Route path="subjects">
             <Route index element={<SubjectsPage syllabus={syllabus} />} />
