@@ -17,4 +17,37 @@
   height: calc(100vh - 100px - 2px);
   background-color: #f4f4ff;
   box-shadow: 0 6px 10px #00000044;
+  overflow: hidden;
+}
+
+.toolbar {
+  border-bottom: solid 1px #e8e8ff;
+  background-color: #ffffff;
+}
+
+.closeButton {
+  padding: 16px;
+  border: none;
+  border-radius: 0;
+  background-color: #ffffff;
+  display: flex;
+  gap: 8px;
+  transition: background-color 0.2s ease-out;
+}
+
+.closeButton:hover {
+  background-color: #f4f4ff;
+}
+
+.closeButtonIcon {
+  width: 1rem;
+  height: 1rem;
+  fill: #030363;
+}
+
+.closeButtonText {
+  margin: 0;
+  color: #030363;
+  font-size: 1rem;
+  line-height: 1;
 }

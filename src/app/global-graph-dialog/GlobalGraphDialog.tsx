@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
+import CloseIcon from '../common-components/CloseIcon';
 import style from './GlobalGraphDialog.module.css';
 
 interface GlobalGraphDialogProp {
@@ -8,7 +9,7 @@ interface GlobalGraphDialogProp {
 
 const GlobalGraphDialog = ({ isVisible, setIsVisible }: GlobalGraphDialogProp): React.JSX.Element => {
 
-  const handleClickBackground = (): void  => {
+  const handleClose = (): void  => {
     setIsVisible(false);
   };
 
@@ -20,9 +21,15 @@ const GlobalGraphDialog = ({ isVisible, setIsVisible }: GlobalGraphDialogProp): 
     <div 
       className={style.background}
       style={{ display: isVisible ? 'block' : 'none' }}
-      onClick={handleClickBackground}
+      onClick={handleClose}
     >
       <div className={style.dialog} onClick={handleClickDialog}>
+        <div className={style.toolbar}>
+          <button className={style.closeButton} onClick={handleClose}>
+            <CloseIcon className={style.closeButtonIcon} />
+            <p className={style.closeButtonText}>閉じる</p>
+          </button>
+        </div>
         <p>Dialog</p>
       </div>
     </div>

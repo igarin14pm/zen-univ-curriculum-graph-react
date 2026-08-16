@@ -1,5 +1,5 @@
 export interface ChevronRightIconProp {
-  className: string;
+  className?: string;
 }
 
 const ChevronRightIcon = ({ className }: ChevronRightIconProp): React.JSX.Element => {
