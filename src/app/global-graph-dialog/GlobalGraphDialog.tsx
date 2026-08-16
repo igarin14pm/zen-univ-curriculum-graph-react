@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import CloseIcon from '../common-components/CloseIcon';
+import CloseIcon from '../components/icons/CloseIcon';
 import style from './GlobalGraphDialog.module.css';
 
 interface GlobalGraphDialogProp {

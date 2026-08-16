@@ -1,4 +1,4 @@
-import ScrollToTopLink from '../../common-components/ScrollToTopLink';
+import ScrollToTopLink from '../../link/ScrollToTopLink';
 import style from './PageList.module.css';
 
 const PageList = (): React.JSX.Element => {

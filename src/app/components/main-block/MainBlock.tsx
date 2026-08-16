@@ -1,11 +1,11 @@
-import style from './PageContainer.module.css';
+import style from './MainBlock.module.css';
 
-interface PageProp {
+interface MainBlockProp {
   children: React.ReactNode;
   title: string;
 }
 
-const PageContainer = ({ children, title }: PageProp): React.JSX.Element => {
+const MainBlock = ({ children, title }: MainBlockProp): React.JSX.Element => {
   return (
     <main className={style.container}>
       <h1 className={style.pageTitle}>{title}</h1>
@@ -14,4 +14,4 @@ const PageContainer = ({ children, title }: PageProp): React.JSX.Element => {
   );
 };
 
-export default PageContainer;
+export default MainBlock;

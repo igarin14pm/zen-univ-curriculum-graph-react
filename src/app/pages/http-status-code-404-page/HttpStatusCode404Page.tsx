@@ -1,6 +1,6 @@
-import HeadTitle from '../../common-components/HeadTitle';
+import DocumentPageLayout from '../../components/document-page-layout/DocumentPageLayout';
+import HeadTitle from '../../components/head/HeadTitle';
 import HomePageLinkButton from './components/HomePageLinkButton';
-import PageContainer from '../PageContainer';
 import StatusCodeBlock from './components/StatusCodeBlock';
 
 const HttpStatusCode404Page = (): React.JSX.Element => {
@@ -10,7 +10,7 @@ const HttpStatusCode404Page = (): React.JSX.Element => {
     <>
       <HeadTitle pageName={pageName} />
 
-      <PageContainer title={pageName}>
+      <DocumentPageLayout title={pageName}>
 
         <StatusCodeBlock />
 
@@ -25,7 +25,7 @@ const HttpStatusCode404Page = (): React.JSX.Element => {
         </p>
         <HomePageLinkButton />
 
-      </PageContainer>
+      </DocumentPageLayout>
     </>
   );
 };
