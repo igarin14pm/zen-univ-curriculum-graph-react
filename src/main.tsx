@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { mockSubjectDetailsByName, mockSubjectNameIdMap } from './data/subject-data-source';
 import App from './app/App';
+import GlobalGraphPage from './app/pages/global-graph-page/GlobalGraphPage';
 import HomePage from './app/pages/home-page/HomePage';
 import HttpStatusCode404Page from './app/pages/http-status-code-404-page/HttpStatusCode404Page';
 import ReportBugsPage from './app/pages/report-bugs-page/ReportBugsPage';
@@ -22,11 +23,12 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
+          <Route path="global-graph" element={<GlobalGraphPage syllabus={syllabus} />} />
+          <Route path="report-bugs" element={<ReportBugsPage />} />
           <Route path="subjects">
             <Route index element={<SubjectsPage syllabus={syllabus} />} />
             {subjectDetailPages}
           </Route>
-          <Route path="report-bugs" element={<ReportBugsPage />} />
           <Route path="*" element={<HttpStatusCode404Page />} />
         </Route>
       </Routes>

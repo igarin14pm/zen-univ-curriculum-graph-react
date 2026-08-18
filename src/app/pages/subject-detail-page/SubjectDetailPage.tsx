@@ -1,6 +1,6 @@
 import { type Subject, Syllabus } from '../../../data/syllabus';
-import HeadTitle from '../../common-components/HeadTitle';
-import PageContainer from '../PageContainer';
+import DocumentPageLayout from '../../components/document-page-layout/DocumentPageLayout';
+import HeadTitle from '../../components/head/HeadTitle';
 import RelatedSubjectListItems from './components/RelatedSubjectListItems';
 import SourceSubjectGraphContainer from './components/SourceSubjectGraphContainer';
 import SourceSubjectTagDescription from './components/SourceSubjectTagDescription';
@@ -21,10 +21,10 @@ class SourceSubjects {
   
   constructor(syllabus: Syllabus, subject: Subject) {
     this.highlyRecommendedPrerequisites = subject.highlyRecommendedPrerequisiteIds.map((id) => {
-      return syllabus.getSubjectById(id);
+      return syllabus.get(id);
     });
     this.recommendedPrerequisites = subject.recommendedPrerequisiteIds.map((id) => {
-      return syllabus.getSubjectById(id);
+      return syllabus.get(id);
     }).filter((subjectToFilter) => {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter);
     });
@@ -58,7 +58,7 @@ class TargetSubjects {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter);
     });
     this.recommendedSuccessors = subject.recommendedSuccessorIds.map((id) => {
-      return syllabus.getSubjectById(id);
+      return syllabus.get(id);
     }).filter((subjectToFilter) => {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter) && !this.recommendedPrerequisites.includes(subjectToFilter);
     });
@@ -80,7 +80,7 @@ const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProp): React.
     <>
       <HeadTitle pageName={pageTitle} />
 
-      <PageContainer title={pageTitle}>
+      <DocumentPageLayout title={pageTitle} subjectNumbering={subject.id}>
         <h2>この前に履修すべき科目</h2>
         <ul>
           <RelatedSubjectListItems 
@@ -123,7 +123,7 @@ const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProp): React.
         {targetSubjects.isEmpty ? <p>(なし)</p> : <TargetSubjectTagDescription subjectName={subject.name} />}
         <h3>グラフ</h3>
         <TargetSubjectGraphContainer syllabus={syllabus} currentlyViewingSubject={subject} />
-      </PageContainer>
+      </DocumentPageLayout>
     </>
   );
 };

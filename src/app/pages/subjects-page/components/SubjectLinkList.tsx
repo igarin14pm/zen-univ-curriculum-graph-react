@@ -1,6 +1,6 @@
 import Fuse, { type FuseResult } from 'fuse.js';
 import { Subject, Syllabus } from '../../../../data/syllabus';
-import ScrollToTopLink from '../../../common-components/ScrollToTopLink';
+import ScrollToTopLink from '../../../components/link/ScrollToTopLink';
 import style from './SubjectLinkList.module.css';
 
 interface SubjectLinkListProp {

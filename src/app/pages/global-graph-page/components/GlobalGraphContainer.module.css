@@ -1,0 +1,5 @@
+.container {
+  width: 100%;
+  height: calc(100% - (16px * 2 + 1rem + 1px));
+  background-color: #f4f4ff;
+}

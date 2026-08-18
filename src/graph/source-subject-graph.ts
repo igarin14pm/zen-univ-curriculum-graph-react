@@ -16,13 +16,13 @@ export class SourceSubjectGraph {
 
     while (queue.length > 0) {
       queue[0].highlyRecommendedPrerequisiteIds.forEach((highlyRecommendedPrerequisiteId) => {
-        const highlyRecommendedPrerequisite: Subject = syllabus.getSubjectById(highlyRecommendedPrerequisiteId);
+        const highlyRecommendedPrerequisite: Subject = syllabus.get(highlyRecommendedPrerequisiteId);
         if (!includes(highlyRecommendedPrerequisite)) {
           queue.push(highlyRecommendedPrerequisite);
         }
       });
       queue[0].recommendedPrerequisiteIds.forEach((recommendedPrerequisiteId) => {
-        const recommendedPrerequisite: Subject = syllabus.getSubjectById(recommendedPrerequisiteId);
+        const recommendedPrerequisite: Subject = syllabus.get(recommendedPrerequisiteId);
         if (!includes(recommendedPrerequisite)) {
           queue.push(recommendedPrerequisite);
         }
@@ -46,7 +46,13 @@ export class SourceSubjectGraph {
   ): void {
     const subjects: Subject[] = SourceSubjectGraph.getGraphSubjects(syllabus, currentlyViewingSubject);
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
-    SubjectGraph.initialize(container, elements, currentlyViewingSubject.id, navigate);
+    SubjectGraph.initialize(
+      container, 
+      elements, 
+      currentlyViewingSubject.id, 
+      false,
+      navigate
+    );
   }
 
 }

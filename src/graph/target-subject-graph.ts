@@ -16,7 +16,7 @@ export class TargetSubjectGraph {
 
     while (queue.length > 0) {
       queue[0].recommendedSuccessorIds.forEach((recommendedSuccessorId) => {
-        const recommendedSuccessor: Subject = syllabus.getSubjectById(recommendedSuccessorId);
+        const recommendedSuccessor: Subject = syllabus.get(recommendedSuccessorId);
         if (!includes(recommendedSuccessor)) {
           queue.push(recommendedSuccessor);
         }
@@ -42,7 +42,13 @@ export class TargetSubjectGraph {
   ): void {
     const subjects: Subject[] = TargetSubjectGraph.getGraphSubjects(syllabus, currentlyViewingSubject);
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
-    SubjectGraph.initialize(container, elements, currentlyViewingSubject.id, navigate);
+    SubjectGraph.initialize(
+      container, 
+      elements, 
+      currentlyViewingSubject.id, 
+      false,
+      navigate
+    );
   }
 
 }

@@ -1,5 +1,5 @@
-import ChevronRight from '../../../common-components/ChevronRight';
-import ScrollToTopLink from '../../../common-components/ScrollToTopLink';
+import ChevronRightIcon from '../../../components/icons/ChevronRightIcon';
+import ScrollToTopLink from '../../../components/link/ScrollToTopLink';
 import style from './HomePageLinkButton.module.css';
 
 const HomePageLinkButton = (): React.JSX.Element => {
@@ -7,7 +7,7 @@ const HomePageLinkButton = (): React.JSX.Element => {
     <ScrollToTopLink className={style.link} to="/">
       <div className={style.background}>
         <p className={style.text}>Home</p>
-        <ChevronRight className={style.chevron}/>
+        <ChevronRightIcon className={style.chevron}/>
       </div>
     </ScrollToTopLink>
   );
