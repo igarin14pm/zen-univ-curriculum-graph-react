@@ -14,6 +14,12 @@ export class GlobalGraph {
     const subjects: Subject[] = syllabus.subjects;
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
     const currentlyViewingSubjectId: string | null = currentlyViewingSubject == null ? null : currentlyViewingSubject.id;
-    SubjectGraph.initialize(container, elements, currentlyViewingSubjectId, navigate);
+    SubjectGraph.initialize(
+      container, 
+      elements, 
+      currentlyViewingSubjectId, 
+      true,
+      navigate
+    );
   }
 }

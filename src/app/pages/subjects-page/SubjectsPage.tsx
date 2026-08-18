@@ -3,7 +3,7 @@ import HeadTitle from '../../components/head/HeadTitle';
 import SearchBox from './components/SearchBox';
 import SubjectLinkList from './components/SubjectLinkList';
 import { Syllabus } from '../../../data/syllabus';
-import { type UseStateValue } from '../../../utils/use-state-value';
+import { type UseStateValue } from '../../../types/use-state-value';
 import { useState } from 'react';
 
 interface SubjectsPageProp {

@@ -21,10 +21,10 @@ class SourceSubjects {
   
   constructor(syllabus: Syllabus, subject: Subject) {
     this.highlyRecommendedPrerequisites = subject.highlyRecommendedPrerequisiteIds.map((id) => {
-      return syllabus.getSubjectById(id);
+      return syllabus.get(id);
     });
     this.recommendedPrerequisites = subject.recommendedPrerequisiteIds.map((id) => {
-      return syllabus.getSubjectById(id);
+      return syllabus.get(id);
     }).filter((subjectToFilter) => {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter);
     });
@@ -58,7 +58,7 @@ class TargetSubjects {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter);
     });
     this.recommendedSuccessors = subject.recommendedSuccessorIds.map((id) => {
-      return syllabus.getSubjectById(id);
+      return syllabus.get(id);
     }).filter((subjectToFilter) => {
       return !this.highlyRecommendedPrerequisites.includes(subjectToFilter) && !this.recommendedPrerequisites.includes(subjectToFilter);
     });
@@ -80,7 +80,7 @@ const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProp): React.
     <>
       <HeadTitle pageName={pageTitle} />
 
-      <DocumentPageLayout title={pageTitle}>
+      <DocumentPageLayout title={pageTitle} subjectNumbering={subject.id}>
         <h2>この前に履修すべき科目</h2>
         <ul>
           <RelatedSubjectListItems 
