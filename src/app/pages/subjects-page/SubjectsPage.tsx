@@ -1,5 +1,5 @@
 import DocumentPageLayout from '../../components/document-page-layout/DocumentPageLayout';
-import HeadTitle from '../../components/head/HeadTitle';
+import Head from '../../components/head/Head';
 import SearchBox from './components/SearchBox';
 import SubjectLinkList from './components/SubjectLinkList';
 import { Syllabus } from '../../../data/syllabus';
@@ -17,7 +17,7 @@ const SubjectsPage = ({ syllabus }: SubjectsPageProp): React.JSX.Element => {
 
   return (
     <>
-      <HeadTitle pageName={pageName} />
+      <Head pageName={pageName} />
 
       <DocumentPageLayout title={pageName}>
         <SearchBox setQuery={setQuery} />

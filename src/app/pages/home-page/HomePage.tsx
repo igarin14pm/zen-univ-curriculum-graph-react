@@ -1,12 +1,12 @@
 import DocumentPageLayout from '../../components/document-page-layout/DocumentPageLayout';
-import HeadTitle from '../../components/head/HeadTitle';
+import Head from '../../components/head/Head';
 
 const HomePage = (): React.JSX.Element => {
   const pageName = 'Home';
   
   return (
     <>
-      <HeadTitle pageName={pageName} />
+      <Head pageName={pageName} />
 
       <DocumentPageLayout title={pageName}>
         <p>Home</p>

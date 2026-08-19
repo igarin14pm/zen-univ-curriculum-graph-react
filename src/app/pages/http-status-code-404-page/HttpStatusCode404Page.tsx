@@ -1,5 +1,5 @@
 import DocumentPageLayout from '../../components/document-page-layout/DocumentPageLayout';
-import HeadTitle from '../../components/head/HeadTitle';
+import Head from '../../components/head/Head';
 import HomePageLinkButton from './components/HomePageLinkButton';
 import StatusCodeBlock from './components/StatusCodeBlock';
 
@@ -8,7 +8,7 @@ const HttpStatusCode404Page = (): React.JSX.Element => {
   
   return (
     <>
-      <HeadTitle pageName={pageName} />
+      <Head pageName={pageName} />
 
       <DocumentPageLayout title={pageName}>
 
