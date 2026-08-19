@@ -3,13 +3,17 @@ import PageList from './components/PageList';
 import SiteName from './components/SiteName';
 import style from './Sidebar.module.css';
 
-const Sidebar = (): React.JSX.Element => {
+interface SidebarProp {
+  subjectId?: string;
+}
+
+const Sidebar = ({ subjectId }: SidebarProp): React.JSX.Element => {
   return (
     <nav className={style.container}>
       <SiteName />
       <hr />
       <h2>ページ</h2>
-      <GlobalGraphButton />
+      <GlobalGraphButton subjectId={subjectId} />
       <PageList />
     </nav>
   );

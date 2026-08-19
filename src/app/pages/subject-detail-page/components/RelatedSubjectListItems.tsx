@@ -1,6 +1,6 @@
 import HighlyRecommendedTag from './HighlyRecommendedTag';
 import PrerequisiteTag from './PrerequisiteTag';
-import ScrollToTopLink from '../../../common-components/ScrollToTopLink';
+import ScrollToTopLink from '../../../components/link/ScrollToTopLink';
 import { type Subject } from '../../../../data/syllabus';
 
 interface RelatedSubjectListItemsProp {

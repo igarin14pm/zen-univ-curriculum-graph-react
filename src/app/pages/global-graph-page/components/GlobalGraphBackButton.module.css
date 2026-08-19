@@ -1,0 +1,30 @@
+.button {
+  margin: 0;
+  padding: 16px;
+  border: none;
+  background-color: #f4f4ff;
+  display: flex;
+  gap: 8px;
+  transition: background-color 0.2s ease-out;
+}
+
+.button:hover {
+  background-color: #ccccff;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  fill: #050594;
+  transition: transform 0.2s ease-out;
+}
+
+.button:hover .icon {
+  transform: translateX(-50%);
+}
+
+.text {
+  margin: 0;
+  color: #050594;
+  line-height: 1;
+}

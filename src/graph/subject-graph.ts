@@ -70,7 +70,8 @@ export class SubjectGraph {
   static initialize(
     container: HTMLDivElement, 
     elements: cytoscape.ElementDefinition[],
-    currentlyViewingSubjectId: string,
+    currentlyViewingSubjectId: string | null,
+    canClickCurrentlyViewingSubjectNode: boolean,
     navigate: NavigateFunction
   ): void {
     const cy = cytoscape({
@@ -90,10 +91,19 @@ export class SubjectGraph {
 
     cy.on('tap', 'node', (event) => {
       const node: cytoscape.SingularData = event.target;
-      const subjectNumbering: string = node.id();
-      if (subjectNumbering !== currentlyViewingSubjectId) {
-        navigate(`/subjects/${subjectNumbering}`);
+      const subjectId: string = node.id();
+
+      function navigateToSubjectPage(subjectId: string): void {
+        navigate(`/subjects/${subjectId}`);
         window.scrollTo(0, 0);
+      }
+
+      if (canClickCurrentlyViewingSubjectNode) {
+        navigateToSubjectPage(subjectId);
+      } else {
+        if (subjectId !== currentlyViewingSubjectId) {
+          navigateToSubjectPage(subjectId);
+        }
       }
     });
   }

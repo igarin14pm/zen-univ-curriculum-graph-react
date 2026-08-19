@@ -54,7 +54,7 @@ export class Syllabus {
     });
   }
 
-  getSubjectById(id: string): Subject {
+  get(id: string): Subject {
     const filtered: Subject[] = this.subjects.filter((subject) => {
       return subject.id === id;
     });
@@ -64,6 +64,10 @@ export class Syllabus {
       throw new SyllabusReferenceError(`Multiple subjects found for id '${id}'. Expected exactly 1, but found ${filtered.length}.`);
     }
     return filtered[0];
+  }
+
+  has(id: string): boolean {
+    return this.subjects.some((subject) => subject.id === id);
   }
 
 }

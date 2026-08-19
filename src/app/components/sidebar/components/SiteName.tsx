@@ -1,7 +1,6 @@
-import ScrollToTopLink from '../../common-components/ScrollToTopLink';
+import ScrollToTopLink from '../../link/ScrollToTopLink';
 import logoImage from '../img/logo.svg';
 import style from './SiteName.module.css';
-
 
 const SiteName = (): React.JSX.Element => {
   return (
