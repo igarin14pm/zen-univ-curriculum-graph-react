@@ -91,18 +91,18 @@ export class SubjectGraph {
 
     cy.on('tap', 'node', (event) => {
       const node: cytoscape.SingularData = event.target;
-      const subjectNumbering: string = node.id();
+      const subjectId: string = node.id();
 
-      function navigateToSubjectPage(subjectNumbering: string): void {
-        navigate(`/subjects/${subjectNumbering}`);
+      function navigateToSubjectPage(subjectId: string): void {
+        navigate(`/subjects/${subjectId}`);
         window.scrollTo(0, 0);
       }
 
       if (canClickCurrentlyViewingSubjectNode) {
-        navigateToSubjectPage(subjectNumbering);
+        navigateToSubjectPage(subjectId);
       } else {
-        if (subjectNumbering !== currentlyViewingSubjectId) {
-          navigateToSubjectPage(subjectNumbering);
+        if (subjectId !== currentlyViewingSubjectId) {
+          navigateToSubjectPage(subjectId);
         }
       }
     });
