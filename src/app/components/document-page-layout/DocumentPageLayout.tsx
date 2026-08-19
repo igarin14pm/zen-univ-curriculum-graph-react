@@ -4,14 +4,14 @@ import style from './DocumentPageLayout.module.css';
 
 interface DocumentPageLayoutProp {
   title: string;
-  subjectNumbering?: string;
+  subjectId?: string;
   children: React.ReactNode;
 }
 
-const DocumentPageLayout = ({ title, subjectNumbering, children }: DocumentPageLayoutProp): React.JSX.Element => {
+const DocumentPageLayout = ({ title, subjectId, children }: DocumentPageLayoutProp): React.JSX.Element => {
   return (
     <div className={style.container}>
-      <Sidebar subjectNumbering={subjectNumbering} />
+      <Sidebar subjectId={subjectId} />
       <MainBlock title={title}>
         {children}
       </MainBlock>

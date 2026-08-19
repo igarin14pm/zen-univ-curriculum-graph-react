@@ -80,7 +80,7 @@ const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProp): React.
     <>
       <HeadTitle pageName={pageTitle} />
 
-      <DocumentPageLayout title={pageTitle} subjectNumbering={subject.id}>
+      <DocumentPageLayout title={pageTitle} subjectId={subject.id}>
         <h2>この前に履修すべき科目</h2>
         <ul>
           <RelatedSubjectListItems 

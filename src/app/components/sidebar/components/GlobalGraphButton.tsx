@@ -3,11 +3,11 @@ import ScrollToTopLink from '../../link/ScrollToTopLink';
 import style from './GlobalGraphButton.module.css';
 
 interface GlobalGraphButtonProp {
-  subjectNumbering?: string;
+  subjectId?: string;
 }
 
-const GlobalGraphButton = ({ subjectNumbering }: GlobalGraphButtonProp): React.JSX.Element => {
-  const linkUrl = subjectNumbering !== undefined ? `/global-graph?subject=${subjectNumbering}` : '/global-graph';
+const GlobalGraphButton = ({ subjectId }: GlobalGraphButtonProp): React.JSX.Element => {
+  const linkUrl = subjectId !== undefined ? `/global-graph?subject=${subjectId}` : '/global-graph';
 
   return (
     <ScrollToTopLink className={style.anchor} to={linkUrl}>
