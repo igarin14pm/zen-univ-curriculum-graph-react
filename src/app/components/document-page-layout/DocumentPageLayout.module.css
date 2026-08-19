@@ -1,5 +1,21 @@
 .container {
-  width: 1200px;
-  display: flex;
   margin: 0 auto;
+  padding: 0 20px;
+  width: 1180px;
+  display: flex;
+  gap: 20px;
+}
+
+@media screen and (width < 1200px) {
+  .container {
+    margin: 0;
+    width: calc(100% - 20px * 2);
+  }
+}
+
+@media screen and (width < 550px) {
+  .container {
+    padding: 0;
+    width: 100%;
+  }
 }

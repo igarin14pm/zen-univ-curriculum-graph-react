@@ -61,3 +61,15 @@ li {
 ul {
   margin: var(--standard-margin-vertical) 0;
 }
+
+@media screen and (width < 550px) {
+  h1 {
+    font-size: 2rem;
+    margin-top: calc(2rem * var(--line-height));
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-top: calc(1.75rem * var(--line-height));
+  }
+}
