@@ -1,0 +1,35 @@
+.toolbarContainer {
+  width: 100vw;
+  backdrop-filter: blur(8px);
+  background-color: #f4f4ffdd;
+  overflow: hidden;
+  position: fixed;
+  transition: height 0.2s ease-out;
+  z-index: 10;
+
+  display: none;
+}
+
+.toolbar {
+  border-bottom: solid 1px #e8e8ff;
+  height: calc(1rem + 20px * 2);
+  display: flex;
+  line-height: 1;
+}
+
+.toolbarLogo {
+  padding: 20px 0;
+  height: 1rem;
+}
+
+.toolbarMenu {
+  width: 100vw;
+  height: calc(100vh - 20px * 2 + 24px + 1px);
+  overflow: scroll;
+}
+
+@media screen and (width < 950px) {
+  .toolbarContainer {
+    display: block;
+  }
+}

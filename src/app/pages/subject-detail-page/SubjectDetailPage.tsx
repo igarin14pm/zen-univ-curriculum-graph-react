@@ -1,6 +1,6 @@
 import { type Subject, Syllabus } from '../../../data/syllabus';
 import DocumentPageLayout from '../../components/document-page-layout/DocumentPageLayout';
-import HeadTitle from '../../components/head/HeadTitle';
+import Head from '../../components/head/Head';
 import RelatedSubjectListItems from './components/RelatedSubjectListItems';
 import SourceSubjectGraphContainer from './components/SourceSubjectGraphContainer';
 import SourceSubjectTagDescription from './components/SourceSubjectTagDescription';
@@ -74,13 +74,13 @@ const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProp): React.
   const sourceSubjects = new SourceSubjects(syllabus, subject);
   const targetSubjects = new TargetSubjects(syllabus, subject);
 
-  const pageTitle: string = subject.name;
+  const pageName: string = subject.name;
 
   return (
     <>
-      <HeadTitle pageName={pageTitle} />
+      <Head pageName={pageName} />
 
-      <DocumentPageLayout title={pageTitle} subjectId={subject.id}>
+      <DocumentPageLayout title={pageName} subjectId={subject.id}>
         <h2>この前に履修すべき科目</h2>
         <ul>
           <RelatedSubjectListItems 

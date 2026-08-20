@@ -1,5 +1,6 @@
 import MainBlock from '../main-block/MainBlock';
 import Sidebar from '../sidebar/Sidebar';
+import Toolbar from '../toolbar/Toolbar';
 import style from './DocumentPageLayout.module.css';
 
 interface DocumentPageLayoutProp {
@@ -10,12 +11,15 @@ interface DocumentPageLayoutProp {
 
 const DocumentPageLayout = ({ title, subjectId, children }: DocumentPageLayoutProp): React.JSX.Element => {
   return (
-    <div className={style.container}>
-      <Sidebar subjectId={subjectId} />
-      <MainBlock title={title}>
-        {children}
-      </MainBlock>
-    </div>
+    <>
+      <Toolbar subjectId={subjectId} />
+      <div className={style.scrollContainer}>
+        <Sidebar subjectId={subjectId} />
+        <MainBlock title={title}>
+          {children}
+        </MainBlock>
+      </div>
+    </>
   );
 };
 

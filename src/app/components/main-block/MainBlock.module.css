@@ -1,12 +1,32 @@
 .container {
-  margin: 50px 10px;
+  margin: 0;
   border: solid 1px #e8e8ff;
   border-radius: 10px;
   padding: 50px;
-  width: calc(1200px - 300px - 102px);
+  width: calc(1200px - (20px * 3) - 280px - (50px + 1px) * 2);
   background-color: #ffffff;
 }
 
 .pageTitle {
   margin-top: 0;
+}
+
+@media screen and (width < 1200px) {
+  .container {
+    width: calc(100vw - (20px * 3) - 280px - (50px + 1px) * 2);
+  }
+}
+
+@media screen and (width < 950px) {
+  .container {
+    padding: 20px;
+    width: calc(100vw - 20px * 2 - (20px + 1px) * 2);
+  }
+}
+
+@media screen and (width < 550px) {
+  .container {
+    padding: 10px;
+    width: calc(100vw - (10px + 1px) * 2);
+  }
 }
