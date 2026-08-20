@@ -11,9 +11,9 @@ const GlobalGraphButton = ({ subjectId }: GlobalGraphButtonProp): React.JSX.Elem
 
   return (
     <ScrollToTopLink className={style.anchor} to={linkUrl}>
-      <div className={style.globalGraphButton}>
-        <p className={style.globalGraphButtonText}>グローバルグラフ</p>
-        <ChevronRightIcon className={style.globalGraphButtonChevron} />
+      <div className={style.button}>
+        <p className={style.text}>グローバルグラフ</p>
+        <ChevronRightIcon className={style.chevron} />
       </div>
     </ScrollToTopLink>
   );

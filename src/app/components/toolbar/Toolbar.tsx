@@ -12,16 +12,16 @@ interface ToolbarProp {
 const Toolbar = ({ subjectId }: ToolbarProp): React.JSX.Element => {
 
   const [isExpanded, setIsExpanded]: UseStateValue<boolean> = useState<boolean>(false);
-  const toolbarContainerMenuHeight: string = isExpanded ? 'calc(100vh)' : 'calc(20px * 2 + 1rem + 1px)';
+  const containerHeight: string = isExpanded ? 'calc(100vh)' : 'calc(20px * 2 + 1rem + 1px)';
   const globalGraphLinkUrl: string = subjectId !== undefined ? `/global-graph?subject=${subjectId}` : '/global-graph';
 
   return (
-    <div className={style.toolbarContainer} style={{ height: toolbarContainerMenuHeight }}>
+    <div className={style.container} style={{ height: containerHeight }}>
       <div className={style.toolbar}>
         <ToolbarMenuButton isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
-        <img className={style.toolbarLogo} src={logoImage} alt="ZEN大 カリキュラム・グラフのロゴ" />
+        <img className={style.logo} src={logoImage} alt="ZEN大 カリキュラム・グラフのロゴ" />
       </div>
-      <div className={style.toolbarMenu}>
+      <div className={style.menu}>
         <ToolbarMenuLink text="Home" to="/" setIsExpanded={setIsExpanded} />
         <ToolbarMenuLink text="グローバルグラフ" to={globalGraphLinkUrl} setIsExpanded={setIsExpanded} />
         <ToolbarMenuLink text="科目" to="/subjects" setIsExpanded={setIsExpanded} />

@@ -6,7 +6,7 @@ interface CalloutProp {
 
 const Callout = ({ children }: CalloutProp): React.JSX.Element => {
   return (
-    <div className={style.calloutContainer}>
+    <div className={style.container}>
       {children}
     </div> 
   );

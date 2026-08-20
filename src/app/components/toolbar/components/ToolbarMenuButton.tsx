@@ -15,8 +15,8 @@ const ToolbarMenuButton = ({ isExpanded, setIsExpanded }: ToolbarMenuButtonProp)
   };
 
   return (
-    <button className={style.toolbarMenuButton} onClick={handleClick}>
-      {isExpanded ? <CloseIcon className={style.toolbarMenuIcon} /> : <MenuIcon className={style.toolbarMenuIcon} />}
+    <button className={style.button} onClick={handleClick}>
+      {isExpanded ? <CloseIcon className={style.icon} /> : <MenuIcon className={style.icon} />}
     </button>
   );
 };

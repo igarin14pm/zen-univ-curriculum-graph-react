@@ -16,12 +16,12 @@ const ToolbarMenuLink = ({ text, to, setIsExpanded }: ToolbarMenuLinkProp): Reac
   };
 
   return (
-    <Link to={to} onClick={handleClick} className={style.toolbarMenuLinkAnchor}>
-      <div className={style.toolbarMenuLinkContainer}>
-        <p className={style.toolbarMenuLinkText}>
+    <Link to={to} onClick={handleClick} className={style.anchor}>
+      <div className={style.container}>
+        <p className={style.text}>
           {text}
         </p>
-        <ChevronRightIcon className={style.toolbarMenuLinkChevron} />
+        <ChevronRightIcon className={style.chevron} />
       </div>
     </Link>
   );
