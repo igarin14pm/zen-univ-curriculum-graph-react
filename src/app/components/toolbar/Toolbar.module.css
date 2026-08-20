@@ -1,4 +1,4 @@
-.toolbarContainer {
+.container {
   width: 100vw;
   backdrop-filter: blur(8px);
   background-color: #f4f4ffdd;
@@ -17,19 +17,19 @@
   line-height: 1;
 }
 
-.toolbarLogo {
+.logo {
   padding: 20px 0;
   height: 1rem;
 }
 
-.toolbarMenu {
+.menu {
   width: 100vw;
   height: calc(100vh - 20px * 2 + 24px + 1px);
   overflow: scroll;
 }
 
 @media screen and (width < 950px) {
-  .toolbarContainer {
+  .container {
     display: block;
   }
 }

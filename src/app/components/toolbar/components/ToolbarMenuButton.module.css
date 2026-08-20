@@ -1,4 +1,4 @@
-.toolbarMenuButton {
+.button {
   padding: 20px;
   border: 0;
   border-radius: 0;
@@ -6,7 +6,7 @@
   display: block;
 }
 
-.toolbarMenuIcon {
+.icon {
   width: 1rem;
   height: 1rem;
   display: block;

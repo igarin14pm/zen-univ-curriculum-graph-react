@@ -1,22 +1,22 @@
-.toolbarMenuLinkAnchor {
+.anchor {
   text-decoration: none;
 }
 
-.toolbarMenuLinkContainer {
+.container {
   margin: 16px 0;
   padding: 0 16px;
   display: flex;
   justify-content: space-between;
 }
 
-.toolbarMenuLinkText {
+.text {
   margin: 0;
   color: #030363;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-.toolbarMenuLinkChevron {
+.chevron {
   margin: calc((1.5rem * var(--line-height) - 1.5rem) / 2) 0;
   width: 1.5rem;
   height: 1.5rem;
