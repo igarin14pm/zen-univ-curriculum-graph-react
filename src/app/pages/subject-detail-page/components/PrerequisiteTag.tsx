@@ -1,7 +1,7 @@
 import style from './PrerequisiteTag.module.css';
 
 const PrerequisiteTag = (): React.JSX.Element => {
-  return <span className={style.container}>前提</span>;
+  return <div className={style.container}>前提</div>;
 };
 
 export default PrerequisiteTag;

@@ -1,4 +1,12 @@
 .table {
+  border-spacing: 0 8px;
   text-align: left;
-  line-height: 2.5;
+}
+
+.table th, .table td {
+  vertical-align: top;
+}
+
+.table th {
+  width: 5rem;
 }
