@@ -18,8 +18,8 @@
 }
 
 .logo {
-  padding: 20px 0;
-  height: 1rem;
+  padding: calc(20px - (1.75rem - 1rem) / 2) 0;
+  height: 1.75rem;
 }
 
 .menu {
