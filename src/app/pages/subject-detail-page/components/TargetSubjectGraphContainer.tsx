@@ -4,12 +4,12 @@ import { type Subject, Syllabus } from '../../../../data/syllabus';
 import { TargetSubjectGraph } from '../../../../graph/target-subject-graph';
 import style from './TargetSubjectGraphContainer.module.css';
 
-interface TargetSubjectGraphContainerProp {
+interface TargetSubjectGraphContainerProps {
   syllabus: Syllabus;
   currentlyViewingSubject: Subject;
 }
 
-const TargetSubjectGraphContainer = ({ syllabus, currentlyViewingSubject }: TargetSubjectGraphContainerProp): React.JSX.Element => {
+const TargetSubjectGraphContainer = ({ syllabus, currentlyViewingSubject }: TargetSubjectGraphContainerProps): React.JSX.Element => {
   const containerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
   const navigate: NavigateFunction = useNavigate();
   useEffect(() => {

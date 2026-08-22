@@ -4,12 +4,12 @@ import { type Subject, Syllabus } from '../../../../data/syllabus';
 import { SourceSubjectGraph } from '../../../../graph/source-subject-graph';
 import style from './SourceSubjectGraphContainer.module.css';
 
-interface SourceSubjectGraphContainerProp {
+interface SourceSubjectGraphContainerProps {
   syllabus: Syllabus;
   currentlyViewingSubject: Subject;
 }
 
-const SourceSubjectGraphContainer = ({ syllabus, currentlyViewingSubject }: SourceSubjectGraphContainerProp): React.JSX.Element => {
+const SourceSubjectGraphContainer = ({ syllabus, currentlyViewingSubject }: SourceSubjectGraphContainerProps): React.JSX.Element => {
   const conatinerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
   const navigate: NavigateFunction = useNavigate();
   useEffect(() => {

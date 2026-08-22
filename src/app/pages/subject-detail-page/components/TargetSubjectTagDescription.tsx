@@ -3,11 +3,11 @@ import HighlyRecommendedTag from './HighlyRecommendedTag';
 import PrerequisiteTag from './PrerequisiteTag';
 import style from './TargetSubjectTagDescription.module.css';
 
-interface TargetSubjectTagDescriptionProp {
+interface TargetSubjectTagDescriptionProps {
   subjectName: string;
 }
 
-const TargetSubjectTagDescription = ({ subjectName }: TargetSubjectTagDescriptionProp): React.JSX.Element => {
+const TargetSubjectTagDescription = ({ subjectName }: TargetSubjectTagDescriptionProps): React.JSX.Element => {
   return (
     <Callout>
       <table className={style.table}>

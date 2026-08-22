@@ -3,12 +3,12 @@ import CloseIcon from '../../icons/CloseIcon';
 import MenuIcon from '../../icons/MenuIcon';
 import style from './ToolbarMenuButton.module.css';
 
-interface ToolbarMenuButtonProp {
+interface ToolbarMenuButtonProps {
   isExpanded: boolean;
   setIsExpanded: Dispatch<SetStateAction<boolean>>;
 }
 
-const ToolbarMenuButton = ({ isExpanded, setIsExpanded }: ToolbarMenuButtonProp): React.JSX.Element => {
+const ToolbarMenuButton = ({ isExpanded, setIsExpanded }: ToolbarMenuButtonProps): React.JSX.Element => {
 
   const handleClick = (): void => {
     setIsExpanded(!isExpanded);

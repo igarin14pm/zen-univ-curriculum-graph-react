@@ -3,13 +3,13 @@ import ChevronRightIcon from '../../icons/ChevronRightIcon';
 import { Link } from 'react-router';
 import style from './ToolbarMenuLink.module.css';
 
-interface ToolbarMenuLinkProp {
+interface ToolbarMenuLinkProps {
   text: string;
   to: string;
   setIsExpanded: Dispatch<SetStateAction<boolean>>;
 }
 
-const ToolbarMenuLink = ({ text, to, setIsExpanded }: ToolbarMenuLinkProp): React.JSX.Element => {
+const ToolbarMenuLink = ({ text, to, setIsExpanded }: ToolbarMenuLinkProps): React.JSX.Element => {
 
   const handleClick = (): void => {
     setIsExpanded(false);

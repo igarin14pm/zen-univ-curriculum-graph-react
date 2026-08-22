@@ -1,10 +1,10 @@
 import HeadTitle from './components/HeadTitle';
 
-interface HeadProp {
+interface HeadProps {
   pageName: string;
 }
 
-const Head = ({ pageName }: HeadProp): React.JSX.Element => {
+const Head = ({ pageName }: HeadProps): React.JSX.Element => {
   return (
     <>
       <HeadTitle pageName={pageName} />

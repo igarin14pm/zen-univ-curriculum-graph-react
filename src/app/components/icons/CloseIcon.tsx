@@ -1,8 +1,8 @@
-interface CloseIconProp {
+interface CloseIconProps {
   className?: string;
 }
 
-const CloseIcon = ({ className }: CloseIconProp): React.JSX.Element => {
+const CloseIcon = ({ className }: CloseIconProps): React.JSX.Element => {
   return (
     <svg 
       className={className}

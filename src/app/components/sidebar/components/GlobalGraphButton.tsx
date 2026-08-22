@@ -2,11 +2,11 @@ import ChevronRightIcon from '../../icons/ChevronRightIcon';
 import ScrollToTopLink from '../../link/ScrollToTopLink';
 import style from './GlobalGraphButton.module.css';
 
-interface GlobalGraphButtonProp {
+interface GlobalGraphButtonProps {
   subjectId?: string;
 }
 
-const GlobalGraphButton = ({ subjectId }: GlobalGraphButtonProp): React.JSX.Element => {
+const GlobalGraphButton = ({ subjectId }: GlobalGraphButtonProps): React.JSX.Element => {
   const linkUrl = subjectId !== undefined ? `/global-graph?subject=${subjectId}` : '/global-graph';
 
   return (

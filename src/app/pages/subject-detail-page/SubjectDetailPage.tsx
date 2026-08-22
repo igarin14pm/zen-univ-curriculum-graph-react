@@ -65,12 +65,12 @@ class TargetSubjects {
   }
 }
 
-interface SubjectDetailPageProp {
+interface SubjectDetailPageProps {
   syllabus: Syllabus;
   subject: Subject;
 }
 
-const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProp): React.JSX.Element => {
+const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProps): React.JSX.Element => {
   const sourceSubjects = new SourceSubjects(syllabus, subject);
   const targetSubjects = new TargetSubjects(syllabus, subject);
 
