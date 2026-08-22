@@ -11,30 +11,32 @@ const TargetSubjectTagDescription = ({ subjectName }: TargetSubjectTagDescriptio
   return (
     <Callout>
       <table className={style.table}>
-        <tr>
-          <th>
-            <HighlyRecommendedTag />
-          </th>
-          <td>
-            <b>{subjectName}</b> の後に履修することが強く推奨されている科目
-          </td>
-        </tr>
-        <tr>
-          <th>
-            <PrerequisiteTag />
-          </th>
-          <td>
-            <b>{subjectName}</b> が前提科目として設定されている科目
-          </td>
-        </tr>
-        <tr>
-          <th>
-            (無印)
-          </th>
-          <td>
-            <b>{subjectName}</b> の後継科目
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>
+              <HighlyRecommendedTag />
+            </th>
+            <td>
+              <b>{subjectName}</b> の後に履修することが強く推奨されている科目
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <PrerequisiteTag />
+            </th>
+            <td>
+              <b>{subjectName}</b> が前提科目として設定されている科目
+            </td>
+          </tr>
+          <tr>
+            <th>
+              (無印)
+            </th>
+            <td>
+              <b>{subjectName}</b> の後継科目
+            </td>
+          </tr>
+        </tbody>
       </table>
     </Callout>
   );
