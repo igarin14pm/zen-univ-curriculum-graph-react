@@ -11,30 +11,32 @@ const SourceSubjectTagDescription = ({ subjectName }: SourceTagDescriptionProps)
   return (
     <Callout>
       <table className={style.table}>
-        <tr>
-          <th>
-            <HighlyRecommendedTag />
-          </th>
-          <td>
-            <b>{subjectName}</b> の前に履修することが強く推奨されている科目
-          </td>
-        </tr>
-        <tr>
-          <th>
-            <PrerequisiteTag />
-          </th>
-          <td>
-            <b>{subjectName}</b> の前提科目
-          </td>
-        </tr>
-        <tr>
-          <th>
-            (無印)
-          </th>
-          <td>
-            <b>{subjectName}</b> が後継科目として設定されている科目
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>
+              <HighlyRecommendedTag />
+            </th>
+            <td>
+              <b>{subjectName}</b> の前に履修することが強く推奨されている科目
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <PrerequisiteTag />
+            </th>
+            <td>
+              <b>{subjectName}</b> の前提科目
+            </td>
+          </tr>
+          <tr>
+            <th>
+              (無印)
+            </th>
+            <td>
+              <b>{subjectName}</b> が後継科目として設定されている科目
+            </td>
+          </tr>
+        </tbody>
       </table>
     </Callout>
   );
