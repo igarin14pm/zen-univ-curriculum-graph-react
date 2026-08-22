@@ -1,10 +1,10 @@
 import style from './Callout.module.css';
 
-interface CalloutProp {
+interface CalloutProps {
   children: React.ReactNode;
 }
 
-const Callout = ({ children }: CalloutProp): React.JSX.Element => {
+const Callout = ({ children }: CalloutProps): React.JSX.Element => {
   return (
     <div className={style.container}>
       {children}

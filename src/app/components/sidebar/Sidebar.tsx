@@ -3,11 +3,11 @@ import PageList from './components/PageList';
 import SiteName from './components/SiteName';
 import style from './Sidebar.module.css';
 
-interface SidebarProp {
+interface SidebarProps {
   subjectId?: string;
 }
 
-const Sidebar = ({ subjectId }: SidebarProp): React.JSX.Element => {
+const Sidebar = ({ subjectId }: SidebarProps): React.JSX.Element => {
   return (
     <nav className={style.container}>
       <SiteName />

@@ -1,8 +1,8 @@
-interface MenuIconProp {
+interface MenuIconProps {
   className?: string;
 }
 
-const MenuIcon = ({ className }: MenuIconProp): React.JSX.Element => {
+const MenuIcon = ({ className }: MenuIconProps): React.JSX.Element => {
   return (
     <svg 
       className={className}

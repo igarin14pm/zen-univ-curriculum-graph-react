@@ -6,11 +6,11 @@ import { Syllabus } from '../../../data/syllabus';
 import { type UseStateValue } from '../../../types/use-state-value';
 import { useState } from 'react';
 
-interface SubjectsPageProp {
+interface SubjectsPageProps {
   syllabus: Syllabus;
 }
 
-const SubjectsPage = ({ syllabus }: SubjectsPageProp): React.JSX.Element => {
+const SubjectsPage = ({ syllabus }: SubjectsPageProps): React.JSX.Element => {
   const [query, setQuery]: UseStateValue<string> = useState('');
 
   const pageName = '科目';

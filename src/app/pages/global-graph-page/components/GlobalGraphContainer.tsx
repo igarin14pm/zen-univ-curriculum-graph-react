@@ -4,12 +4,12 @@ import { type Subject, type Syllabus } from '../../../../data/syllabus';
 import { GlobalGraph } from '../../../../graph/global-graph';
 import style from './GlobalGraphContainer.module.css';
 
-interface GlobalGraphContainerProp {
+interface GlobalGraphContainerProps {
   syllabus: Syllabus;
   searchParams: URLSearchParams;
 }
 
-const GlobalGraphContainer = ({ syllabus, searchParams }: GlobalGraphContainerProp): React.JSX.Element => {
+const GlobalGraphContainer = ({ syllabus, searchParams }: GlobalGraphContainerProps): React.JSX.Element => {
   // `URLSearchParams` から `Subject` を取得
   const subjectSearchParam: string | null = searchParams.get('subject');
   let subject: Subject | null = null;

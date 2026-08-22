@@ -1,8 +1,8 @@
-export interface ChevronRightIconProp {
+export interface ChevronRightIconProps {
   className?: string;
 }
 
-const ChevronRightIcon = ({ className }: ChevronRightIconProp): React.JSX.Element => {
+const ChevronRightIcon = ({ className }: ChevronRightIconProps): React.JSX.Element => {
   return (
     <svg 
       className={className}

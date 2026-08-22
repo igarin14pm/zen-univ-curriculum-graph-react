@@ -6,11 +6,11 @@ import { type UseSearchParamsValue } from '../../../types/use-search-params-valu
 import style from './GlobalGraphPage.module.css';
 import { useSearchParams } from 'react-router';
 
-interface GlobalGraphPageProp {
+interface GlobalGraphPageProps {
   syllabus: Syllabus;
 }
 
-const GlobalGraphPage = ({ syllabus }: GlobalGraphPageProp): React.JSX.Element => {
+const GlobalGraphPage = ({ syllabus }: GlobalGraphPageProps): React.JSX.Element => {
 
   const pageName = 'グローバルグラフ';
 

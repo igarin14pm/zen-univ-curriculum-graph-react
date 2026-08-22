@@ -5,11 +5,11 @@ import logoImage from '../../../images/logo.svg';
 import style from './Toolbar.module.css';
 import { useState } from 'react';
 
-interface ToolbarProp {
+interface ToolbarProps {
   subjectId?: string;
 }
 
-const Toolbar = ({ subjectId }: ToolbarProp): React.JSX.Element => {
+const Toolbar = ({ subjectId }: ToolbarProps): React.JSX.Element => {
 
   const [isExpanded, setIsExpanded]: UseStateValue<boolean> = useState<boolean>(false);
   const containerHeight: string = isExpanded ? 'calc(100vh)' : 'calc(20px * 2 + 1rem + 1px)';

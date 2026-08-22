@@ -3,13 +3,13 @@ import Sidebar from '../sidebar/Sidebar';
 import Toolbar from '../toolbar/Toolbar';
 import style from './DocumentPageLayout.module.css';
 
-interface DocumentPageLayoutProp {
+interface DocumentPageLayoutProps {
   title: string;
   subjectId?: string;
   children: React.ReactNode;
 }
 
-const DocumentPageLayout = ({ title, subjectId, children }: DocumentPageLayoutProp): React.JSX.Element => {
+const DocumentPageLayout = ({ title, subjectId, children }: DocumentPageLayoutProps): React.JSX.Element => {
   return (
     <>
       <Toolbar subjectId={subjectId} />

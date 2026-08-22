@@ -3,11 +3,11 @@ import HighlyRecommendedTag from './HighlyRecommendedTag';
 import PrerequisiteTag from './PrerequisiteTag';
 import style from './SourceSubjectTagDescription.module.css';
 
-interface SourceTagDescriptionProp {
+interface SourceTagDescriptionProps {
   subjectName: string
 }
 
-const SourceSubjectTagDescription = ({ subjectName }: SourceTagDescriptionProp): React.JSX.Element => {
+const SourceSubjectTagDescription = ({ subjectName }: SourceTagDescriptionProps): React.JSX.Element => {
   return (
     <Callout>
       <table className={style.table}>
