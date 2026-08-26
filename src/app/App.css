@@ -17,11 +17,11 @@ body {
 }
 
 a {
-  color: #0000bc;
+  color: #0606aa;
 }
 
 a:visited {
-  color: #525294;
+  color: #6606aa;
 }
 
 hr {
@@ -58,6 +58,22 @@ li {
   margin: calc(0.33rem * var(--line-height)) 0;
 }
 
+nav {
+  margin: var(--standard-margin-vertical) 0;
+}
+
 ul {
   margin: var(--standard-margin-vertical) 0;
+}
+
+@media screen and (width < 550px) {
+  h1 {
+    font-size: 2rem;
+    margin-top: calc(2rem * var(--line-height));
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-top: calc(1.75rem * var(--line-height));
+  }
 }

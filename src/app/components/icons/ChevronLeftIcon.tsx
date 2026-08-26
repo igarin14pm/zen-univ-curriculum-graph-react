@@ -1,8 +1,8 @@
-interface ChevronLeftIconProp {
+interface ChevronLeftIconProps {
   className?: string;
 }
 
-const ChevronLeftIcon = ({ className }: ChevronLeftIconProp): React.JSX.Element => {
+const ChevronLeftIcon = ({ className }: ChevronLeftIconProps): React.JSX.Element => {
   return (
     <svg 
       className={className}

@@ -1,18 +1,44 @@
+import Callout from '../../../components/callout/Callout';
 import HighlyRecommendedTag from './HighlyRecommendedTag';
 import PrerequisiteTag from './PrerequisiteTag';
 import style from './TargetSubjectTagDescription.module.css';
 
-interface TargetSubjectTagDescriptionProp {
+interface TargetSubjectTagDescriptionProps {
   subjectName: string;
 }
 
-const TargetSubjectTagDescription = ({ subjectName }: TargetSubjectTagDescriptionProp): React.JSX.Element => {
+const TargetSubjectTagDescription = ({ subjectName }: TargetSubjectTagDescriptionProps): React.JSX.Element => {
   return (
-    <p className={style.container}>
-      <HighlyRecommendedTag />: &quot;{subjectName}&quot; の後に履修することが強く推奨されている科目<br />
-      <PrerequisiteTag />: &quot;{subjectName}&quot; が前提科目として設定されている科目<br />
-      無印: &quot;{subjectName}&quot; の後継科目
-    </p>
+    <Callout>
+      <table className={style.table}>
+        <tbody>
+          <tr>
+            <th>
+              <HighlyRecommendedTag />
+            </th>
+            <td>
+              <b>{subjectName}</b> の後に履修することが強く推奨されている科目
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <PrerequisiteTag />
+            </th>
+            <td>
+              <b>{subjectName}</b> が前提科目として設定されている科目
+            </td>
+          </tr>
+          <tr>
+            <th>
+              (無印)
+            </th>
+            <td>
+              <b>{subjectName}</b> の後継科目
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </Callout>
   );
 };
 

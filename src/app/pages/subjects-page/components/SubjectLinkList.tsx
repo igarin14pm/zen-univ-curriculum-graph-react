@@ -3,12 +3,12 @@ import { Subject, Syllabus } from '../../../../data/syllabus';
 import ScrollToTopLink from '../../../components/link/ScrollToTopLink';
 import style from './SubjectLinkList.module.css';
 
-interface SubjectLinkListProp {
+interface SubjectLinkListProps {
   syllabus: Syllabus,
   searchQuery: string
 }
 
-const SubjectLinkList = ({ syllabus, searchQuery }: SubjectLinkListProp): React.JSX.Element => {
+const SubjectLinkList = ({ syllabus, searchQuery }: SubjectLinkListProps): React.JSX.Element => {
   const fuse = new Fuse(syllabus.subjects, {
     keys: ['name']
   });

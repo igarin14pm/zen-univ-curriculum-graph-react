@@ -1,0 +1,15 @@
+.button {
+  padding: 20px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  display: block;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  fill: #030363;
+  line-height: 1;
+}

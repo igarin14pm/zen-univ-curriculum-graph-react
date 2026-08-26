@@ -1,5 +1,5 @@
 import ScrollToTopLink from '../../link/ScrollToTopLink';
-import logoImage from '../img/logo.svg';
+import logoImage from '../../../../images/logo.svg';
 import style from './SiteName.module.css';
 
 const SiteName = (): React.JSX.Element => {

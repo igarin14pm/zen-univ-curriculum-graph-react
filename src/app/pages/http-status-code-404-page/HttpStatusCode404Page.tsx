@@ -1,16 +1,19 @@
 import DocumentPageLayout from '../../components/document-page-layout/DocumentPageLayout';
-import HeadTitle from '../../components/head/HeadTitle';
+import DocumentPageTitle from '../../components/document-page-title/DocumentPageTitle';
+import Head from '../../components/head/Head';
 import HomePageLinkButton from './components/HomePageLinkButton';
+import { PageName } from '../page-name';
 import StatusCodeBlock from './components/StatusCodeBlock';
 
 const HttpStatusCode404Page = (): React.JSX.Element => {
-  const pageName = 'ページが見つかりませんでした';
   
   return (
     <>
-      <HeadTitle pageName={pageName} />
+      <Head pageName={PageName.httpStatusCode404} />
 
-      <DocumentPageLayout title={pageName}>
+      <DocumentPageLayout>
+
+        <DocumentPageTitle isOnTop={true}>{PageName.httpStatusCode404}</DocumentPageTitle>
 
         <StatusCodeBlock />
 

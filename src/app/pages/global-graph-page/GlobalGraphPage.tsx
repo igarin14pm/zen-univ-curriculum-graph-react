@@ -1,23 +1,25 @@
 import GlobalGraphContainer from './components/GlobalGraphContainer';
 import GlobalGraphHeader from './components/GlobalGraphHeader';
-import HeadTitle from '../../components/head/HeadTitle';
+import Head from '../../components/head/Head';
 import { type Syllabus } from '../../../data/syllabus';
 import { type UseSearchParamsValue } from '../../../types/use-search-params-value';
 import style from './GlobalGraphPage.module.css';
 import { useSearchParams } from 'react-router';
 
-interface GlobalGraphPageProp {
+interface GlobalGraphPageProps {
   syllabus: Syllabus;
 }
 
-const GlobalGraphPage = ({ syllabus }: GlobalGraphPageProp): React.JSX.Element => {
+const GlobalGraphPage = ({ syllabus }: GlobalGraphPageProps): React.JSX.Element => {
+
+  const pageName = 'グローバルグラフ';
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchParams, _]: UseSearchParamsValue = useSearchParams();
 
   return (
     <>
-      <HeadTitle pageName='グローバルグラフ' />
+      <Head pageName={pageName} />
 
       <div className={style.page}>
         <GlobalGraphHeader />

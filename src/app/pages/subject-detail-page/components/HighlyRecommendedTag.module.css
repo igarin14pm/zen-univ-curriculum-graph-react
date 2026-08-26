@@ -1,8 +1,9 @@
 .container {
-  background-color: #bb0044;
-  color: #ffffff;
   margin: 0 3px;
   border-radius: 5px;
   padding: 3px;
+  background-color: #bb0044;
+  color: #ffffff;
+  display: inline-block;
   font-weight: 600;
 }
