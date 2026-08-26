@@ -1,3 +1,4 @@
+import Footer from '../footer/Footer';
 import MainBlock from '../main-block/MainBlock';
 import Sidebar from '../sidebar/Sidebar';
 import Toolbar from '../toolbar/Toolbar';
@@ -14,9 +15,12 @@ const DocumentPageLayout = ({ subjectId, children }: DocumentPageLayoutProps): R
       <Toolbar subjectId={subjectId} />
       <div className={style.scrollContainer}>
         <Sidebar subjectId={subjectId} />
-        <MainBlock>
-          {children}
-        </MainBlock>
+        <div>
+          <MainBlock>
+            {children}
+          </MainBlock>
+          <Footer />
+        </div>
       </div>
     </>
   );
