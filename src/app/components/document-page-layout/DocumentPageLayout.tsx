@@ -4,18 +4,17 @@ import Toolbar from '../toolbar/Toolbar';
 import style from './DocumentPageLayout.module.css';
 
 interface DocumentPageLayoutProps {
-  title: string;
   subjectId?: string;
   children: React.ReactNode;
 }
 
-const DocumentPageLayout = ({ title, subjectId, children }: DocumentPageLayoutProps): React.JSX.Element => {
+const DocumentPageLayout = ({ subjectId, children }: DocumentPageLayoutProps): React.JSX.Element => {
   return (
     <>
       <Toolbar subjectId={subjectId} />
       <div className={style.scrollContainer}>
         <Sidebar subjectId={subjectId} />
-        <MainBlock title={title}>
+        <MainBlock>
           {children}
         </MainBlock>
       </div>

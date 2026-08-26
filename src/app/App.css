@@ -58,6 +58,10 @@ li {
   margin: calc(0.33rem * var(--line-height)) 0;
 }
 
+nav {
+  margin: var(--standard-margin-vertical) 0;
+}
+
 ul {
   margin: var(--standard-margin-vertical) 0;
 }
