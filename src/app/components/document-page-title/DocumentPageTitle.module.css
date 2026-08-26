@@ -1,0 +1,7 @@
+.title {
+  margin-top: var(--standard-margin-vertical);
+}
+
+.titleOnTop {
+  margin-top: 0;
+}
