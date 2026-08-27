@@ -1,0 +1,25 @@
+.container {
+  margin: var(--standard-margin-vertical) 0;
+  background-color: #fff6d3;
+  border: solid 1px #ffeda6;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #5e4b00;
+}
+
+.titleText {
+  margin: 0;
+  color: #5e4b00;
+  font-weight: 600;
+}
