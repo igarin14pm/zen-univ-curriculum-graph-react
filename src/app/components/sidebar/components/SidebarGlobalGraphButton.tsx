@@ -1,6 +1,6 @@
 import ChevronRightIcon from '../../icons/ChevronRightIcon';
 import ScrollToTopLink from '../../link/ScrollToTopLink';
-import style from './GlobalGraphButton.module.css';
+import style from './SidebarGlobalGraphButton.module.css';
 
 interface GlobalGraphButtonProps {
   subjectId?: string;

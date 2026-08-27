@@ -1,0 +1,39 @@
+.anchor {
+  text-decoration: none;
+}
+
+.button {
+  background-color: #030363;
+  border-radius: 10px;
+  box-shadow: 0 0 0 #bbbbbb;
+  margin: var(--standard-margin-vertical) 0;
+  padding: 20px;
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  border: none;
+}
+
+.button:hover {
+  background-color: #050594;
+  box-shadow: 0 6px 10px #bbbbbb;
+}
+
+.text {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1
+}
+
+.chevron {
+  fill: #ffffff;
+  height: 1.25rem;
+  transition: transform 0.2s ease-out;
+}
+
+.button:hover .chevron {
+  transform: translateX(50%);
+}
