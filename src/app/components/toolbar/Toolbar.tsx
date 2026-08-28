@@ -25,7 +25,7 @@ const Toolbar = ({ subjectId }: ToolbarProps): React.JSX.Element => {
         <ToolbarMenuLink text="Home" to="/" setIsExpanded={setIsExpanded} />
         <ToolbarMenuLink text="グローバルグラフ" to={globalGraphLinkUrl} setIsExpanded={setIsExpanded} />
         <ToolbarMenuLink text="科目" to="/subjects" setIsExpanded={setIsExpanded} />
-        <ToolbarMenuLink text="不具合を報告する" to="/report-bugs" setIsExpanded={setIsExpanded} />
+        <ToolbarMenuLink text="お問い合わせ" to="/contact" setIsExpanded={setIsExpanded} />
       </div>
     </div>
   );

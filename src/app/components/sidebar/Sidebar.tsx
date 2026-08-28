@@ -1,5 +1,5 @@
-import GlobalGraphButton from './components/GlobalGraphButton';
 import PageList from './components/PageList';
+import SidebarGlobalGraphButton from './components/SidebarGlobalGraphButton';
 import SiteName from './components/SiteName';
 import style from './Sidebar.module.css';
 
@@ -13,7 +13,7 @@ const Sidebar = ({ subjectId }: SidebarProps): React.JSX.Element => {
       <SiteName />
       <hr />
       <h2>ページ</h2>
-      <GlobalGraphButton subjectId={subjectId} />
+      <SidebarGlobalGraphButton subjectId={subjectId} />
       <PageList />
     </nav>
   );

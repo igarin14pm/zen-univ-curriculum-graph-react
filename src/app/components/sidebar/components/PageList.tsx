@@ -5,7 +5,7 @@ const PageList = (): React.JSX.Element => {
   return (
     <ul className={style.pageList}>
       <li><ScrollToTopLink to="/subjects">科目</ScrollToTopLink></li>
-      <li><ScrollToTopLink to="/report-bugs">不具合を報告する</ScrollToTopLink></li>
+      <li><ScrollToTopLink to="/contact">お問い合わせ</ScrollToTopLink></li>
     </ul>
   );
 };

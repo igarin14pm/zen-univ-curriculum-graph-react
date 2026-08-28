@@ -1,0 +1,19 @@
+.footer {
+  padding: 50px 51px;
+}
+
+.footer * {
+  color: #030363;
+}
+
+@media screen and (width < 950px) {
+  .footer {
+    padding: 50px 21px;
+  }
+}
+
+@media screen and (width < 550px) {
+  .footer {
+    padding: 50px 11px;
+  }
+}

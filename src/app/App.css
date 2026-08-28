@@ -38,16 +38,24 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 700;
 
-  margin-top: calc(2rem * var(--line-height));
+  margin-top: calc(2.25rem * var(--line-height));
   margin-bottom: var(--standard-margin-vertical);
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
+
+  margin-top: calc(1.5rem * var(--line-height));
+  margin-bottom: var(--standard-margin-vertical);
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
 
   margin-top: calc(1.25rem * var(--line-height));
   margin-bottom: var(--standard-margin-vertical);
