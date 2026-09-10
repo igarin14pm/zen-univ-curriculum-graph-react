@@ -11,7 +11,7 @@ export class SubjectGraph {
         'height': 17,
         'backgroundColor': '#3b3b4c',
         'label': 'data(name)',
-        'font-size': 10,
+        'font-size': 7.5,
         'text-margin-y': -1,
         'text-background-color': '#f4f4ff',
         'text-background-opacity': 0.75,
@@ -64,7 +64,10 @@ export class SubjectGraph {
 
   static layout: cytoscape.LayoutOptions = {
     name: 'cose',
-    animate: false
+    animate: false,
+    idealEdgeLength: 10,
+    nodeRepulsion: 500000,
+    componentSpacing: 100
   };
 
   static initialize(
