@@ -79,9 +79,10 @@ export class SubjectGraph {
   static layout: cytoscape.LayoutOptions = {
     name: 'cose',
     animate: false,
-    idealEdgeLength: 10,
-    nodeRepulsion: 500000,
-    componentSpacing: 100
+    componentSpacing: 100,
+    gravity: 300,
+    idealEdgeLength: 1,
+    nodeRepulsion: 500000
   };
 
   static filterRelatedNodesAndEdges(cy: cytoscape.Core, nodeId: string): cytoscape.Collection[] {
