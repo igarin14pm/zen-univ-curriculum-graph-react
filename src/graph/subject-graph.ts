@@ -5,6 +5,13 @@ export class SubjectGraph {
 
   static style: cytoscape.StylesheetJson = [
     {
+      selector: 'node, edge',
+      style: {
+        'transition-property': 'opacity',
+        'transition-duration': 100
+      }
+    },
+    {
       selector: 'node',
       style: {
         'width': 17,
@@ -59,6 +66,13 @@ export class SubjectGraph {
         'line-style': 'dotted',
         'target-arrow-color': '#666688'
       }
+    },
+    {
+      selector: '.semitransparent',
+      'style': {
+        'opacity': 0.15,
+        'z-index': -1
+      }
     }
   ];
 
@@ -69,6 +83,65 @@ export class SubjectGraph {
     nodeRepulsion: 500000,
     componentSpacing: 100
   };
+
+  static filterRelatedNodesAndEdges(cy: cytoscape.Core, nodeId: string): cytoscape.Collection[] {
+    const ids: string[] = [];
+
+    function pushIncomingNodeEdgeIds(cy: cytoscape.Core, id: string): void {
+      if (ids.includes(id)) { return; }
+      ids.push(id);
+      const collection: cytoscape.Collection = cy.$(`#${id}`);
+      collection.forEach((element) => {
+        if (element.isNode()) {
+          const node = element as cytoscape.NodeSingular;
+          const incomingEdges: cytoscape.EdgeCollection = cy.$(`edge[target = "${node.id()}"]`);
+          incomingEdges.forEach((edge) => {
+            pushIncomingNodeEdgeIds(cy, edge.id());
+          });
+        }
+        if (element.isEdge()) {
+          const edge = element as cytoscape.EdgeSingular;
+          const sourceNode: cytoscape.NodeSingular = edge.source();
+          pushIncomingNodeEdgeIds(cy, sourceNode.id());
+        }
+      });
+    }
+
+    function pushOutgoingNodeEdgeIds(cy: cytoscape.Core, id: string): void {
+      if (ids.includes(id)) { return; }
+      ids.push(id);
+      const collection: cytoscape.Collection = cy.$(`#${id}`);
+      collection.forEach((element) => {
+        if (element.isNode()) {
+          const node = element as cytoscape.NodeSingular;
+          const outgoingEdges: cytoscape.EdgeCollection = cy.$(`edge[source = "${node.id()}"]`);
+          outgoingEdges.forEach((edge) => {
+            pushOutgoingNodeEdgeIds(cy, edge.id());
+          });
+        }
+        if (element.isEdge()) {
+          const edge = element as cytoscape.EdgeSingular;
+          const targetNode: cytoscape.NodeSingular = edge.target();
+          pushOutgoingNodeEdgeIds(cy, targetNode.id());
+        }
+      });
+    }
+
+    ids.push(nodeId);
+
+    const incomingEdges = cy.$(`edge[target = "${nodeId}"]`);
+    incomingEdges.forEach((edge) => {
+      pushIncomingNodeEdgeIds(cy, edge.id());
+    });
+
+    const outgoingEdges = cy.$(`edge[source = "${nodeId}"]`);
+    outgoingEdges.forEach((edge) => {
+      pushOutgoingNodeEdgeIds(cy, edge.id());
+    });
+
+    const result = ids.map((id) => cy.$(`#${id}`));
+    return result;
+  }
 
   static initialize(
     container: HTMLDivElement, 
@@ -108,6 +181,38 @@ export class SubjectGraph {
           navigateToSubjectPage(subjectId);
         }
       }
+    });
+
+    const highlightRelatedSubjects = (event: cytoscape.EventObject): void => {
+      const allNodesAndEdges: cytoscape.Collection = cy.$('node, edge');
+      allNodesAndEdges.addClass('semitransparent');
+
+      const node: cytoscape.SingularData = event.target;
+      const relatedNodesAndEdges: cytoscape.Collection[] = this.filterRelatedNodesAndEdges(cy, node.id());
+      relatedNodesAndEdges.forEach((nodeOrEdge) => {
+        nodeOrEdge.removeClass('semitransparent');
+      });
+    };
+
+    const highlightAllSubjects = (): void => {
+      const allNodesAndEdges: cytoscape.Collection = cy.$('node, edge');
+      allNodesAndEdges.removeClass('semitransparent');
+    };
+
+    cy.on('mouseover', 'node', (event) => {
+      highlightRelatedSubjects(event);
+    });
+
+    cy.on('mouseout', 'node', () => {
+      highlightAllSubjects();
+    });
+
+    cy.on('touchstart', 'node', (event) => {
+      highlightRelatedSubjects(event);
+    });
+
+    cy.on('touchend', 'node', () => {
+      highlightAllSubjects();
     });
   }
 
