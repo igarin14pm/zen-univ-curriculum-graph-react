@@ -1,0 +1,52 @@
+.container {
+  overflow: scroll;
+}
+
+.table {
+  width: 1250px;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  padding: 16px;
+  border: solid 0.5px #e8e8ff;
+  background-color: #f4f4ff;
+  text-align: left;
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.table ul {
+  margin: 0
+}
+
+.topLeftCell {
+  border-top-left-radius: 10px;
+}
+
+.topRightCell {
+  border-top-right-radius: 10px;
+}
+
+.bottomLeftCell {
+  border-bottom-left-radius: 10px;
+}
+
+.bottomRightCell {
+  border-bottom-right-radius: 10px;
+}
+
+@media screen and (width < 1200px) {
+  .table {
+    width: 1000px;
+  }
+}
+
+@media screen and (width < 550px) {
+  .table {
+    width: 700px;
+  }
+}

@@ -661,7 +661,7 @@ export const subjectDetailsByName: SubjectDetailByName[] = [
     'キャリアデザインⅠ（自己理解）',
     [],
     [],
-    ['キャリアデザインⅡ（仕事理解）', 'キャリアデザインⅢ（就活実践）']
+    ['キャリアデザインⅡ（仕事理解）']
   ),
   new SubjectDetailByName(
     '英語コミュニケーションⅠ（発音）',
@@ -673,7 +673,7 @@ export const subjectDetailsByName: SubjectDetailByName[] = [
     '英語コミュニケーションⅡ（日常会話）',
     [],
     ['英語コミュニケーションⅠ（発音）'],
-    ['英語コミュニケーションⅡ（日常会話）', '英語コミュニケーションⅢ（プレゼンテーション）', '英語コミュニケーションⅣ（ビジネス会話）']
+    ['英語コミュニケーションⅢ（プレゼンテーション）', '英語コミュニケーションⅣ（ビジネス会話）']
   ),
   new SubjectDetailByName(
     '対人コミュニケーション論',
@@ -733,7 +733,7 @@ export const subjectDetailsByName: SubjectDetailByName[] = [
     'Inter-universal Teichmüller Theory 1（宇宙際タイヒミューラー理論 1）',
     [],
     [],
-    ['Inter-universal Teichmüller Theory 2（宇宙際タイヒミューラー理論 2）', 'Inter-universal Teichmüller Theory 4（宇宙際タイヒミューラー理論 4）', 'Inter-universal Teichmüller Theory 3（宇宙際タイヒミューラー理論 3）']
+    ['Inter-universal Teichmüller Theory 2（宇宙際タイヒミューラー理論 2）']
   ),
   new SubjectDetailByName(
     '生きてゆくための禅',
@@ -1104,7 +1104,7 @@ export const subjectDetailsByName: SubjectDetailByName[] = [
   new SubjectDetailByName(
     'キャリアデザインⅢ（就活実践）',
     [],
-    ['キャリアデザインⅠ（自己理解）', 'キャリアデザインⅡ（仕事理解）'],
+    ['キャリアデザインⅡ（仕事理解）'],
     []
   ),
   new SubjectDetailByName(
@@ -1201,12 +1201,12 @@ export const subjectDetailsByName: SubjectDetailByName[] = [
     'Inter-universal Teichmüller Theory 2（宇宙際タイヒミューラー理論 2）',
     [],
     ['Inter-universal Teichmüller Theory 1（宇宙際タイヒミューラー理論 1）'],
-    ['Inter-universal Teichmüller Theory 3（宇宙際タイヒミューラー理論 3）', 'Inter-universal Teichmüller Theory 4（宇宙際タイヒミューラー理論 4）']
+    ['Inter-universal Teichmüller Theory 3（宇宙際タイヒミューラー理論 3）']
   ),
   new SubjectDetailByName(
     'Inter-universal Teichmüller Theory 3（宇宙際タイヒミューラー理論 3）',
     [],
-    ['Inter-universal Teichmüller Theory 1（宇宙際タイヒミューラー理論 1）', 'Inter-universal Teichmüller Theory 2（宇宙際タイヒミューラー理論 2）'],
+    ['Inter-universal Teichmüller Theory 2（宇宙際タイヒミューラー理論 2）'],
     ['Inter-universal Teichmüller Theory 4（宇宙際タイヒミューラー理論 4）']
   ),
   new SubjectDetailByName(
@@ -1452,7 +1452,7 @@ export const subjectDetailsByName: SubjectDetailByName[] = [
   new SubjectDetailByName(
     'ディープラーニング3',
     [],
-    ['ディープラーニング1'],
+    ['ディープラーニング2'],
     []
   ),
   new SubjectDetailByName(
@@ -1668,7 +1668,7 @@ export const subjectDetailsByName: SubjectDetailByName[] = [
   new SubjectDetailByName(
     'Inter-universal Teichmüller Theory 4（宇宙際タイヒミューラー理論 4）',
     [],
-    ['Inter-universal Teichmüller Theory 1（宇宙際タイヒミューラー理論 1）', 'Inter-universal Teichmüller Theory 2（宇宙際タイヒミューラー理論 2）', 'Inter-universal Teichmüller Theory 3（宇宙際タイヒミューラー理論 3）'],
+    ['Inter-universal Teichmüller Theory 3（宇宙際タイヒミューラー理論 3）'],
     []
   ),
   new SubjectDetailByName(
@@ -1692,13 +1692,13 @@ export const subjectDetailsByName: SubjectDetailByName[] = [
   new SubjectDetailByName(
     '日本文学Ⅲ',
     [],
-    ['日本文学Ⅰ', '日本文学Ⅱ'],
+    ['日本文学Ⅱ'],
     []
   ),
   new SubjectDetailByName(
     '文化人類学Ⅲ',
     [],
-    ['文化人類学Ⅰ', '文化人類学Ⅱ'],
+    ['文化人類学Ⅱ'],
     []
   ),
   new SubjectDetailByName(
