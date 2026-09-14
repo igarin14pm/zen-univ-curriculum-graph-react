@@ -17,7 +17,7 @@ const TargetSubjectTagDescription = ({ subjectName }: TargetSubjectTagDescriptio
               <HighlyRecommendedTag />
             </th>
             <td>
-              <b>{subjectName}</b> の後に履修することが強く推奨されている科目
+              <b>{subjectName}</b> を事前に履修することが強く推奨されている科目
             </td>
           </tr>
           <tr>
