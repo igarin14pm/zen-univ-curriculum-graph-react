@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
-import { mockSubjectDetailsByName, mockSubjectNameIdMap } from './data/subject-data-source';
+import { subjectDetailsByName, subjectNameIdMap } from './data/subject-data-source';
 import App from './app/App';
 import ContactPage from './app/pages/contact-page/ContactPage';
 import GlobalGraphPage from './app/pages/global-graph-page/GlobalGraphPage';
@@ -11,7 +11,7 @@ import SubjectsPage from './app/pages/subjects-page/SubjectsPage';
 import { Syllabus } from './data/syllabus';
 import { createRoot } from 'react-dom/client';
 
-const syllabus = new Syllabus(mockSubjectNameIdMap, mockSubjectDetailsByName);
+const syllabus = new Syllabus(subjectNameIdMap, subjectDetailsByName);
 
 const subjectDetailPages: React.JSX.Element[] = syllabus.subjects.map((subject) => {
   return <Route path={subject.id} element={<SubjectDetailPage syllabus={syllabus} subject={subject} />} />;

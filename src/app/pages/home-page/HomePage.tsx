@@ -3,6 +3,7 @@ import DocumentPageTitle from '../../components/document-page-title/DocumentPage
 import Head from '../../components/head/Head';
 import HomePageContactButton from './components/HomePageContactButton';
 import HomePageGlobalGraphButton from './components/HomePageGlobalGraphButton';
+import HomePageRelatedSubjectDiffTable from './components/HomePageRelatedSubjectDiffTable';
 import HomePageSubjectsButton from './components/HomePageSubjectsButton';
 import InfoCallout from '../../components/callout/InfoCallout';
 import { PageName } from '../page-name';
@@ -41,6 +42,21 @@ const HomePage = (): React.JSX.Element => {
         <HomePageSubjectsButton />
         <p>各科目のページを探すことができます。</p>
         <p>科目ページ内には関連する履修科目とそのグラフが掲載されています。</p>
+        
+        <details>
+          <summary>カリキュラム・マップとの前提・後継科目の違いについて</summary>
+          <p>以下に当てはまる項目について、前提・後継科目のデータをカリキュラム・マップのものから一部修正しています。</p>
+          <ol type="a">
+            <li>
+              ナンバリング (Ⅰ、Ⅱ等) が付与されている科目で、前提・後継科目の関係性が連続的でないもの<br />
+              (〇〇Ⅲ の前提科目に 〇〇Ⅰ ・ 〇〇Ⅱ の両方が含まれているなど)
+            </li>
+            <li>科目名に表記揺れがあるもの</li>
+            <li>明らかに誤植だと思われるもの</li>
+          </ol>
+          <p>修正したすべての箇所は以下の通りです。 (左右にスクロールできます)</p>
+          <HomePageRelatedSubjectDiffTable />
+        </details>
 
         <h2>お問い合わせについて</h2>
         <HomePageContactButton />
