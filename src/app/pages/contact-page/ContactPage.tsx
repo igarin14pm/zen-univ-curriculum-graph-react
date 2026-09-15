@@ -10,7 +10,13 @@ const ContactPage = (): React.JSX.Element => {
   
   return (
     <>
-      <Head pageName={pageName} />
+      <Head 
+        pageName={pageName}
+        ogTitle={pageName}
+        ogType="article"
+        ogRouterPath="/contact/"
+        ogDescription="&quot;ZEN大 カリキュラム・グラフ&quot; の不具合の報告やご要望の連絡について記載しています。"
+      />
 
       <DocumentPageLayout>
         <BreadcrumbList isOnTop={true}>
