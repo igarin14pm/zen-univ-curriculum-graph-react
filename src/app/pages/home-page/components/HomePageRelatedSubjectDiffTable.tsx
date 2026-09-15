@@ -142,7 +142,7 @@ const HomePageRelatedSubjectDiffTable = (): React.JSX.Element => {
                 <li>Inter-universal Teichmüller Theory 4（宇宙際タイヒミューラー理論 4）</li>
               </ul>
             </td>
-            <td>c</td>
+            <td>b</td>
           </tr>
           <tr>
             <th>ディープラーニング3</th>
