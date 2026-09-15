@@ -19,7 +19,13 @@ const GlobalGraphPage = ({ syllabus }: GlobalGraphPageProps): React.JSX.Element 
 
   return (
     <>
-      <Head pageName={pageName} />
+      <Head 
+        pageName={pageName}
+        ogTitle={pageName}
+        ogType="article"
+        ogRouterPath="/global-graph/"
+        ogDescription="ZEN大学のすべての科目の前提・後継関係を表示するグラフです。"
+      />
 
       <div className={style.page}>
         <GlobalGraphHeader />
