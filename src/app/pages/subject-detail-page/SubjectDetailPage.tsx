@@ -82,7 +82,13 @@ const SubjectDetailPage = ({ syllabus, subject }: SubjectDetailPageProps): React
 
   return (
     <>
-      <Head pageName={pageName} />
+      <Head
+        pageName={pageName}
+        ogTitle={pageName}
+        ogType="article"
+        ogRouterPath={`/subjects/${subject.id}`}
+        ogDescription={`科目 "${subject.name}" の前提・後継科目とそのグラフを表示したページです。`}
+      />
 
       <DocumentPageLayout subjectId={subject.id}>
         <BreadcrumbList isOnTop={true}>

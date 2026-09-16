@@ -6,10 +6,18 @@ import { PageName } from '../page-name';
 import StatusCodeBlock from './components/StatusCodeBlock';
 
 const HttpStatusCode404Page = (): React.JSX.Element => {
+
+  const pageName: string = PageName.httpStatusCode404;
   
   return (
     <>
-      <Head pageName={PageName.httpStatusCode404} />
+      <Head
+        pageName={pageName}
+        ogTitle={pageName}
+        ogType="article"
+        ogRouterPath="/"
+        ogDescription="リンクのURLが間違っていないか確認してください。もしくは、お探しのページのURLが変更されたり、削除されたりした可能性があります。"
+      />
 
       <DocumentPageLayout>
 

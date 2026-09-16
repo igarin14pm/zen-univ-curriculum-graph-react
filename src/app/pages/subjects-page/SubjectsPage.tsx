@@ -16,10 +16,17 @@ interface SubjectsPageProps {
 
 const SubjectsPage = ({ syllabus }: SubjectsPageProps): React.JSX.Element => {
   const [query, setQuery]: UseStateValue<string> = useState('');
+  const pageName: string = PageName.subjects;
 
   return (
     <>
-      <Head pageName={PageName.subjects} />
+      <Head
+        pageName={pageName}
+        ogTitle={pageName}
+        ogType="article"
+        ogRouterPath="/subjects/"
+        ogDescription="&quot;ZEN大 カリキュラム・グラフ&quot; の科目一覧ページです。"
+      />
 
       <DocumentPageLayout>
         <BreadcrumbList isOnTop={true}>
