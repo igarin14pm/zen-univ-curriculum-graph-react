@@ -215,6 +215,10 @@ export class SubjectGraph {
     cy.on('touchend', 'node', () => {
       highlightAllSubjects();
     });
+
+    cy.on('cxttapstart', 'node', () => {
+      highlightAllSubjects();
+    });
   }
 
 }
