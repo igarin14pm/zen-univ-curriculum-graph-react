@@ -38,21 +38,27 @@ export class SourceSubjectGraph {
     return result;
   }
 
-  static initialize(
+  subjectGraph: SubjectGraph;
+
+  constructor(
     container: HTMLDivElement, 
     syllabus: Syllabus, 
     currentlyViewingSubject: Subject,
     navigate: NavigateFunction
-  ): void {
+  ) {
     const subjects: Subject[] = SourceSubjectGraph.getGraphSubjects(syllabus, currentlyViewingSubject);
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
-    SubjectGraph.initialize(
+    this.subjectGraph = new SubjectGraph(
       container, 
       elements, 
       currentlyViewingSubject.id, 
       false,
       navigate
     );
+  }
+
+  destroy(): void {
+    this.subjectGraph.destroy();
   }
 
 }

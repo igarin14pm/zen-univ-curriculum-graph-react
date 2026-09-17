@@ -21,15 +21,19 @@ const GlobalGraphContainer = ({ syllabus, searchParams }: GlobalGraphContainerPr
   const containerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
   const navigate: NavigateFunction = useNavigate();
   useEffect(() => {
-    if (containerRef.current != null) {
-      GlobalGraph.initialize(
-        containerRef.current,
-        syllabus,
-        subject,
-        navigate
-      );
+    if (containerRef.current == null) { return; }
+    const globalGraph = new GlobalGraph(
+      containerRef.current,
+      syllabus,
+      subject,
+      navigate
+    );
+
+    return () => {
+      globalGraph.destroy();
     };
-  });
+  }, [syllabus, subject, subject?.id, navigate]);
+
   return <div className={style.container} ref={containerRef}></div>;
 };
 

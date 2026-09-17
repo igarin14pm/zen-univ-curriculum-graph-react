@@ -13,15 +13,19 @@ const SourceSubjectGraphContainer = ({ syllabus, currentlyViewingSubject }: Sour
   const conatinerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
   const navigate: NavigateFunction = useNavigate();
   useEffect(() => {
-    if (conatinerRef.current != null) {
-      SourceSubjectGraph.initialize(
-        conatinerRef.current, 
-        syllabus, 
-        currentlyViewingSubject,
-        navigate
-      );
-    }
-  });
+    if (conatinerRef.current == null) { return; }
+    const sourceSubjectGraph = new SourceSubjectGraph(
+      conatinerRef.current, 
+      syllabus, 
+      currentlyViewingSubject,
+      navigate
+    );
+
+    return () => {
+      sourceSubjectGraph.destroy();
+    };
+  }, [syllabus, currentlyViewingSubject, navigate]);
+
   return <div className={style.graphContainer} ref={conatinerRef}></div>;
 };
 

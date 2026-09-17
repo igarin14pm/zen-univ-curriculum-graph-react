@@ -1,5 +1,6 @@
 import { type NavigateFunction } from 'react-router';
 import cytoscape from 'cytoscape';
+import fcose from 'cytoscape-fcose';
 
 export class SubjectGraph {
 
@@ -76,97 +77,46 @@ export class SubjectGraph {
     }
   ];
 
-  static layout: cytoscape.LayoutOptions = {
-    name: 'cose',
+  static layout: fcose.FcoseLayoutOptions = {
+    name: 'fcose',
     animate: false,
-    componentSpacing: 100,
-    gravity: 300,
-    idealEdgeLength: 1,
-    nodeRepulsion: 500000
+    fit: true,
+    gravity: 5,
+    idealEdgeLength: 50,
+    nodeRepulsion: 150000,
+    numIter: 1000,
+    padding: 10,
+    randomize: true,
+    nodeDimensionsIncludeLabels: true
   };
 
-  static filterRelatedNodesAndEdges(cy: cytoscape.Core, nodeId: string): cytoscape.Collection[] {
-    const ids: string[] = [];
+  cy: cytoscape.Core;
 
-    function pushIncomingNodeEdgeIds(cy: cytoscape.Core, id: string): void {
-      if (ids.includes(id)) { return; }
-      ids.push(id);
-      const collection: cytoscape.Collection = cy.$(`#${id}`);
-      collection.forEach((element) => {
-        if (element.isNode()) {
-          const node = element as cytoscape.NodeSingular;
-          const incomingEdges: cytoscape.EdgeCollection = cy.$(`edge[target = "${node.id()}"]`);
-          incomingEdges.forEach((edge) => {
-            pushIncomingNodeEdgeIds(cy, edge.id());
-          });
-        }
-        if (element.isEdge()) {
-          const edge = element as cytoscape.EdgeSingular;
-          const sourceNode: cytoscape.NodeSingular = edge.source();
-          pushIncomingNodeEdgeIds(cy, sourceNode.id());
-        }
-      });
-    }
-
-    function pushOutgoingNodeEdgeIds(cy: cytoscape.Core, id: string): void {
-      if (ids.includes(id)) { return; }
-      ids.push(id);
-      const collection: cytoscape.Collection = cy.$(`#${id}`);
-      collection.forEach((element) => {
-        if (element.isNode()) {
-          const node = element as cytoscape.NodeSingular;
-          const outgoingEdges: cytoscape.EdgeCollection = cy.$(`edge[source = "${node.id()}"]`);
-          outgoingEdges.forEach((edge) => {
-            pushOutgoingNodeEdgeIds(cy, edge.id());
-          });
-        }
-        if (element.isEdge()) {
-          const edge = element as cytoscape.EdgeSingular;
-          const targetNode: cytoscape.NodeSingular = edge.target();
-          pushOutgoingNodeEdgeIds(cy, targetNode.id());
-        }
-      });
-    }
-
-    ids.push(nodeId);
-
-    const incomingEdges = cy.$(`edge[target = "${nodeId}"]`);
-    incomingEdges.forEach((edge) => {
-      pushIncomingNodeEdgeIds(cy, edge.id());
-    });
-
-    const outgoingEdges = cy.$(`edge[source = "${nodeId}"]`);
-    outgoingEdges.forEach((edge) => {
-      pushOutgoingNodeEdgeIds(cy, edge.id());
-    });
-
-    const result = ids.map((id) => cy.$(`#${id}`));
-    return result;
-  }
-
-  static initialize(
-    container: HTMLDivElement, 
+  constructor(
+    container: HTMLDivElement,
     elements: cytoscape.ElementDefinition[],
     currentlyViewingSubjectId: string | null,
     canClickCurrentlyViewingSubjectNode: boolean,
     navigate: NavigateFunction
-  ): void {
-    const cy = cytoscape({
+  ) {
+    cytoscape.use(fcose);
+
+    this.cy = cytoscape({
       container: container,
       elements: elements,
       style: SubjectGraph.style,
       layout: SubjectGraph.layout
     });
-    const zoomLevel = cy.zoom();
+    const zoomLevel = this.cy.zoom();
     const maxZoomLevel = 2;
-    cy.zoom({
+    this.cy.zoom({
       level: zoomLevel > maxZoomLevel ? maxZoomLevel : zoomLevel,
       position: { x: 0, y: 0 }
     });
-    cy.maxZoom(maxZoomLevel);
-    cy.center();
+    this.cy.maxZoom(maxZoomLevel);
+    this.cy.center();
 
-    cy.on('tap', 'node', (event) => {
+    this.cy.on('tap', 'node', (event) => {
       const node: cytoscape.SingularData = event.target;
       const subjectId: string = node.id();
 
@@ -185,40 +135,104 @@ export class SubjectGraph {
     });
 
     const highlightRelatedSubjects = (event: cytoscape.EventObject): void => {
-      const allNodesAndEdges: cytoscape.Collection = cy.$('node, edge');
+      const allNodesAndEdges: cytoscape.Collection = this.cy.$('node, edge');
       allNodesAndEdges.addClass('semitransparent');
 
       const node: cytoscape.SingularData = event.target;
-      const relatedNodesAndEdges: cytoscape.Collection[] = this.filterRelatedNodesAndEdges(cy, node.id());
+      const relatedNodesAndEdges: cytoscape.Collection[] = this.filterRelatedNodesAndEdges(node.id());
       relatedNodesAndEdges.forEach((nodeOrEdge) => {
         nodeOrEdge.removeClass('semitransparent');
       });
     };
 
     const highlightAllSubjects = (): void => {
-      const allNodesAndEdges: cytoscape.Collection = cy.$('node, edge');
+      const allNodesAndEdges: cytoscape.Collection = this.cy.$('node, edge');
       allNodesAndEdges.removeClass('semitransparent');
     };
 
-    cy.on('mouseover', 'node', (event) => {
+    this.cy.on('mouseover', 'node', (event) => {
       highlightRelatedSubjects(event);
     });
 
-    cy.on('mouseout', 'node', () => {
+    this.cy.on('mouseout', 'node', () => {
       highlightAllSubjects();
     });
 
-    cy.on('touchstart', 'node', (event) => {
+    this.cy.on('touchstart', 'node', (event) => {
       highlightRelatedSubjects(event);
     });
 
-    cy.on('touchend', 'node', () => {
+    this.cy.on('touchend', 'node', () => {
       highlightAllSubjects();
     });
 
-    cy.on('cxttapstart', 'node', () => {
+    this.cy.on('cxttapstart', 'node', () => {
       highlightAllSubjects();
     });
+
   }
 
+  filterRelatedNodesAndEdges(nodeId: string): cytoscape.Collection[] {
+    const ids: string[] = [];
+
+    const pushIncomingNodeEdgeIds = (id: string): void => {
+      if (ids.includes(id)) { return; }
+      ids.push(id);
+      const collection: cytoscape.Collection = this.cy.$(`#${id}`);
+      collection.forEach((element) => {
+        if (element.isNode()) {
+          const node = element as cytoscape.NodeSingular;
+          const incomingEdges: cytoscape.EdgeCollection = this.cy.$(`edge[target = "${node.id()}"]`);
+          incomingEdges.forEach((edge) => {
+            pushIncomingNodeEdgeIds(edge.id());
+          });
+        }
+        if (element.isEdge()) {
+          const edge = element as cytoscape.EdgeSingular;
+          const sourceNode: cytoscape.NodeSingular = edge.source();
+          pushIncomingNodeEdgeIds(sourceNode.id());
+        }
+      });
+    };
+
+    const pushOutgoingNodeEdgeIds = (id: string): void => {
+      if (ids.includes(id)) { return; }
+      ids.push(id);
+      const collection: cytoscape.Collection = this.cy.$(`#${id}`);
+      collection.forEach((element) => {
+        if (element.isNode()) {
+          const node = element as cytoscape.NodeSingular;
+          const outgoingEdges: cytoscape.EdgeCollection = this.cy.$(`edge[source = "${node.id()}"]`);
+          outgoingEdges.forEach((edge) => {
+            pushOutgoingNodeEdgeIds(edge.id());
+          });
+        }
+        if (element.isEdge()) {
+          const edge = element as cytoscape.EdgeSingular;
+          const targetNode: cytoscape.NodeSingular = edge.target();
+          pushOutgoingNodeEdgeIds(targetNode.id());
+        }
+      });
+    };
+
+    ids.push(nodeId);
+
+    const incomingEdges = this.cy.$(`edge[target = "${nodeId}"]`);
+    incomingEdges.forEach((edge) => {
+      pushIncomingNodeEdgeIds(edge.id());
+    });
+
+    const outgoingEdges = this.cy.$(`edge[source = "${nodeId}"]`);
+    outgoingEdges.forEach((edge) => {
+      pushOutgoingNodeEdgeIds(edge.id());
+    });
+
+    const result = ids.map((id) => this.cy.$(`#${id}`));
+    return result;
+  }
+
+  destroy(): void {
+    this.cy.destroy();
+  }
+  
 }
