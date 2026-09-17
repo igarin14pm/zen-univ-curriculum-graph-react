@@ -46,7 +46,8 @@ export class SourceSubjectGraph {
   ): void {
     const subjects: Subject[] = SourceSubjectGraph.getGraphSubjects(syllabus, currentlyViewingSubject);
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
-    SubjectGraph.initialize(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const subjectGraph = new SubjectGraph(
       container, 
       elements, 
       currentlyViewingSubject.id, 

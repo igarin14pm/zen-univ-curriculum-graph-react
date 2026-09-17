@@ -14,7 +14,8 @@ export class GlobalGraph {
     const subjects: Subject[] = syllabus.subjects;
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
     const currentlyViewingSubjectId: string | null = currentlyViewingSubject == null ? null : currentlyViewingSubject.id;
-    SubjectGraph.initialize(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const subjectGraph = new SubjectGraph(
       container, 
       elements, 
       currentlyViewingSubjectId, 
