@@ -13,15 +13,18 @@ const TargetSubjectGraphContainer = ({ syllabus, currentlyViewingSubject }: Targ
   const containerRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
   const navigate: NavigateFunction = useNavigate();
   useEffect(() => {
-    if (containerRef.current != null) {
-      TargetSubjectGraph.initialize(
-        containerRef.current, 
-        syllabus, 
-        currentlyViewingSubject,
-        navigate
-      );
-    }
-  });
+    if (containerRef.current == null) { return; }
+    const targetSubjectGraph = new TargetSubjectGraph(
+      containerRef.current, 
+      syllabus, 
+      currentlyViewingSubject,
+      navigate
+    );
+    
+    return () => {
+      targetSubjectGraph.destroy();
+    };
+  }, [syllabus, currentlyViewingSubject, navigate]);
   return <div className={style.graphContainer} ref={containerRef}></div>;
 };
 
