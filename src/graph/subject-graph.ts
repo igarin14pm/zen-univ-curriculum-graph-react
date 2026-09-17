@@ -1,5 +1,6 @@
 import { type NavigateFunction } from 'react-router';
 import cytoscape from 'cytoscape';
+import fcose from 'cytoscape-fcose';
 
 export class SubjectGraph {
 
@@ -76,16 +77,17 @@ export class SubjectGraph {
     }
   ];
 
-  static layout: cytoscape.LayoutOptions = {
-    name: 'cose',
+  static layout: fcose.FcoseLayoutOptions = {
+    name: 'fcose',
     animate: false,
-    componentSpacing: 100,
     fit: true,
-    gravity: 100,
+    gravity: 5,
     idealEdgeLength: 50,
-    nodeRepulsion: 200000,
-    numIter: 500,
-    padding:30
+    nodeRepulsion: 150000,
+    numIter: 1000,
+    padding: 10,
+    randomize: true,
+    nodeDimensionsIncludeLabels: true
   };
 
   cy: cytoscape.Core;
@@ -97,6 +99,8 @@ export class SubjectGraph {
     canClickCurrentlyViewingSubjectNode: boolean,
     navigate: NavigateFunction
   ) {
+    cytoscape.use(fcose);
+
     this.cy = cytoscape({
       container: container,
       elements: elements,
