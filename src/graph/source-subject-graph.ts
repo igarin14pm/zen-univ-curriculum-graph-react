@@ -6,6 +6,8 @@ import type cytoscape from 'cytoscape';
 
 export class SourceSubjectGraph {
 
+  subjectGraph: SubjectGraph;
+
   static getGraphSubjects(syllabus: Syllabus, currentlyViewingSubject: Subject): Subject[] {
     const queue: Subject[] = [currentlyViewingSubject];
     const result: Subject[] = [];
@@ -38,22 +40,25 @@ export class SourceSubjectGraph {
     return result;
   }
 
-  static initialize(
+  constructor(
     container: HTMLDivElement, 
     syllabus: Syllabus, 
     currentlyViewingSubject: Subject,
     navigate: NavigateFunction
-  ): void {
+  ) {
     const subjects: Subject[] = SourceSubjectGraph.getGraphSubjects(syllabus, currentlyViewingSubject);
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const subjectGraph = new SubjectGraph(
+    this.subjectGraph = new SubjectGraph(
       container, 
       elements, 
       currentlyViewingSubject.id, 
       false,
       navigate
     );
+  }
+
+  destroy(): void {
+    this.subjectGraph.destroy();
   }
 
 }

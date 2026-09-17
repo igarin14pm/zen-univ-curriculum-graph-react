@@ -224,7 +224,7 @@ export class SubjectGraph {
     return result;
   }
 
-  destroy() {
+  destroy(): void {
     this.cy.destroy();
   }
   

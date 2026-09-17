@@ -33,6 +33,7 @@ const GlobalGraphContainer = ({ syllabus, searchParams }: GlobalGraphContainerPr
       globalGraph.destroy();
     };
   }, [syllabus, subject, subject?.id, navigate]);
+
   return <div className={style.container} ref={containerRef}></div>;
 };
 

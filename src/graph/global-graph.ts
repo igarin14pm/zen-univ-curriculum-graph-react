@@ -26,7 +26,7 @@ export class GlobalGraph {
     );
   }
 
-  destroy() {
+  destroy(): void {
     this.subjectGraph.destroy();
   }
 
