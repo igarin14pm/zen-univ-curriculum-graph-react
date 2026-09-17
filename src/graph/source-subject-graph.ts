@@ -6,8 +6,6 @@ import type cytoscape from 'cytoscape';
 
 export class SourceSubjectGraph {
 
-  subjectGraph: SubjectGraph;
-
   static getGraphSubjects(syllabus: Syllabus, currentlyViewingSubject: Subject): Subject[] {
     const queue: Subject[] = [currentlyViewingSubject];
     const result: Subject[] = [];
@@ -39,6 +37,8 @@ export class SourceSubjectGraph {
 
     return result;
   }
+
+  subjectGraph: SubjectGraph;
 
   constructor(
     container: HTMLDivElement, 
