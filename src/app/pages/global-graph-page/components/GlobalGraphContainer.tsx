@@ -22,13 +22,17 @@ const GlobalGraphContainer = ({ syllabus, searchParams }: GlobalGraphContainerPr
   const navigate: NavigateFunction = useNavigate();
   useEffect(() => {
     if (containerRef.current == null) { return; }
-    GlobalGraph.initialize(
+    const globalGraph = new GlobalGraph(
       containerRef.current,
       syllabus,
       subject,
       navigate
     );
-  });
+
+    return () => {
+      globalGraph.destroy();
+    };
+  }, [syllabus, subject, subject?.id, navigate]);
   return <div className={style.container} ref={containerRef}></div>;
 };
 

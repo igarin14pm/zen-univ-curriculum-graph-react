@@ -5,7 +5,10 @@ import { SubjectNodeEdgeConverter } from './subject-node-edge-converter';
 import type cytoscape from 'cytoscape';
 
 export class GlobalGraph {
-  static initialize(
+
+  subjectGraph: SubjectGraph;
+
+  constructor(
     container: HTMLDivElement,
     syllabus: Syllabus,
     currentlyViewingSubject: Subject | null,
@@ -14,8 +17,7 @@ export class GlobalGraph {
     const subjects: Subject[] = syllabus.subjects;
     const elements: cytoscape.ElementDefinition[] = SubjectNodeEdgeConverter.convert(subjects, currentlyViewingSubject);
     const currentlyViewingSubjectId: string | null = currentlyViewingSubject == null ? null : currentlyViewingSubject.id;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const subjectGraph = new SubjectGraph(
+    this.subjectGraph = new SubjectGraph(
       container, 
       elements, 
       currentlyViewingSubjectId, 
@@ -23,4 +25,9 @@ export class GlobalGraph {
       navigate
     );
   }
+
+  destroy() {
+    this.subjectGraph.destroy();
+  }
+
 }
