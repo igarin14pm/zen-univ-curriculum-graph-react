@@ -80,9 +80,12 @@ export class SubjectGraph {
     name: 'cose',
     animate: false,
     componentSpacing: 100,
-    gravity: 300,
-    idealEdgeLength: 1,
-    nodeRepulsion: 500000
+    fit: true,
+    gravity: 100,
+    idealEdgeLength: 50,
+    nodeRepulsion: 200000,
+    numIter: 500,
+    padding:30
   };
 
   cy: cytoscape.Core;
