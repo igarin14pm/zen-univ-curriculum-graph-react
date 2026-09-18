@@ -1,0 +1,28 @@
+.graphContainer {
+  margin: var(--standard-margin-vertical) 0;
+  border: solid 1px #e8e8ff;
+  border-radius: 10px;
+  box-shadow: 0 0 0 #dddddd;
+  width: 500px;
+  height: 500px;
+  background-color: #f4f4ff;
+  transition: box-shadow 0.2s ease-out;
+}
+
+.graphContainer:hover {
+  box-shadow: 0 6px 10px #dddddd;
+}
+
+@media screen and (width < 950px) {
+  .graphContainer {
+    width: 468px;
+    height: 468px;
+  }
+}
+
+@media screen and (width < 550px) {
+  .graphContainer {
+    width: 100%;
+    height: 300px;
+  }
+}

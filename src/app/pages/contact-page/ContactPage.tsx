@@ -1,4 +1,5 @@
 import BreadcrumbList from '../../components/breadcrumb-list/BreadcrumbList';
+import Callout from '../../components/callout/Callout';
 import DocumentPageLayout from '../../components/document-page-layout/DocumentPageLayout';
 import DocumentPageTitle from '../../components/document-page-title/DocumentPageTitle';
 import Head from '../../components/head/Head';
@@ -10,13 +11,7 @@ const ContactPage = (): React.JSX.Element => {
   
   return (
     <>
-      <Head 
-        pageName={pageName}
-        ogTitle={pageName}
-        ogType="article"
-        ogRouterPath="/contact/"
-        ogDescription="&quot;ZEN大 カリキュラム・グラフ&quot; の不具合の報告やご要望の連絡について記載しています。"
-      />
+      <Head pageName={pageName} />
 
       <DocumentPageLayout>
         <BreadcrumbList isOnTop={true}>
@@ -27,7 +22,15 @@ const ContactPage = (): React.JSX.Element => {
         <h2>不具合の報告</h2>
         <h3>GitHub をご利用の方</h3>
         <p>
-          以下の GitHub リポジトリにて不具合を報告する Issue を作成してください。<br />
+          以下の GitHub リポジトリにて不具合を報告する Issue を作成してください。
+        </p>
+        <Callout >
+          <p>
+            <b>igarin14pm/zen-univ-curriculum-graph-react</b><br />
+            <a href="https://github.com/igarin14pm/zen-univ-curriculum-graph-react/">https://github.com/igarin14pm/zen-univ-curriculum-graph-react/</a>
+          </p>
+        </Callout>
+        <p>
           報告の重複を防ぐため、<b>GitHub をご利用の方はなるべく GitHub Issues にてご報告ください。</b>
         </p>
         <h3>GitHub をご利用でない方</h3>

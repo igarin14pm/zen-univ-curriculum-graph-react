@@ -40,7 +40,14 @@ export class SubjectGraph {
       selector: 'edge',
       'style': {
         'target-arrow-shape': 'triangle',
-        'curve-style': 'bezier'
+        'curve-style': 'bezier',
+        'label': 'data(name)',
+        'font-size': 7.5,
+        'text-margin-y': -10,
+        'text-background-color': '#f4f4ff',
+        'text-background-opacity': 0.75,
+        'text-background-shape': 'roundrectangle',
+        'text-background-padding': '1'
       }
     },
     {

@@ -4,6 +4,7 @@ import Head from '../../components/head/Head';
 import HomePageContactButton from './components/HomePageContactButton';
 import HomePageGlobalGraphButton from './components/HomePageGlobalGraphButton';
 import HomePageRelatedSubjectDiffTable from './components/HomePageRelatedSubjectDiffTable';
+import HomePageSubjectGraphLegendContainer from './components/HomePageSubjectGraphLegendContainer';
 import HomePageSubjectsButton from './components/HomePageSubjectsButton';
 import InfoCallout from '../../components/callout/InfoCallout';
 import { PageName } from '../page-name';
@@ -13,13 +14,7 @@ const HomePage = (): React.JSX.Element => {
   
   return (
     <>
-      <Head 
-        pageName={PageName.home}
-        ogTitle="ZEN大 カリキュラム・グラフ"
-        ogType="website"
-        ogRouterPath="/"
-        ogDescription="ZEN大学における科目の前提・後継科目と、そのグラフを閲覧することができます。"
-      />
+      <Head pageName={PageName.home} />
 
       <DocumentPageLayout>
         <DocumentPageTitle isOnTop={true}>{PageName.home}</DocumentPageTitle>
@@ -63,6 +58,10 @@ const HomePage = (): React.JSX.Element => {
           <p>修正したすべての箇所は以下の通りです。 (左右にスクロールできます)</p>
           <HomePageRelatedSubjectDiffTable />
         </details>
+
+        <h3>グラフの見方について</h3>
+        <p>凡例は以下の通りです。</p>
+        <HomePageSubjectGraphLegendContainer />
 
         <h2>お問い合わせについて</h2>
         <HomePageContactButton />
