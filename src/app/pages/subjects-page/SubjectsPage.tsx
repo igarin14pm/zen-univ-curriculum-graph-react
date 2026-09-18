@@ -20,13 +20,7 @@ const SubjectsPage = ({ syllabus }: SubjectsPageProps): React.JSX.Element => {
 
   return (
     <>
-      <Head
-        pageName={pageName}
-        ogTitle={pageName}
-        ogType="article"
-        ogRouterPath="/subjects/"
-        ogDescription="&quot;ZEN大 カリキュラム・グラフ&quot; の科目一覧ページです。"
-      />
+      <Head pageName={pageName} />
 
       <DocumentPageLayout>
         <BreadcrumbList isOnTop={true}>

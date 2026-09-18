@@ -13,13 +13,7 @@ const HomePage = (): React.JSX.Element => {
   
   return (
     <>
-      <Head 
-        pageName={PageName.home}
-        ogTitle="ZEN大 カリキュラム・グラフ"
-        ogType="website"
-        ogRouterPath="/"
-        ogDescription="ZEN大学における科目の前提・後継科目と、そのグラフを閲覧することができます。"
-      />
+      <Head pageName={PageName.home} />
 
       <DocumentPageLayout>
         <DocumentPageTitle isOnTop={true}>{PageName.home}</DocumentPageTitle>

@@ -11,13 +11,7 @@ const HttpStatusCode404Page = (): React.JSX.Element => {
   
   return (
     <>
-      <Head
-        pageName={pageName}
-        ogTitle={pageName}
-        ogType="article"
-        ogRouterPath="/"
-        ogDescription="リンクのURLが間違っていないか確認してください。もしくは、お探しのページのURLが変更されたり、削除されたりした可能性があります。"
-      />
+      <Head pageName={pageName} />
 
       <DocumentPageLayout>
 
