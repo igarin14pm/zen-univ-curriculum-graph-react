@@ -1,10 +1,12 @@
 {
-  "name": "zen-univ-curriculum-graph-react-test",
+  "name": "zen-univ-curriculum-graph-react",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npx @lizenz/checker --production --customPath ./lizenz-checker-custom-path.json --out ./public/text/third-party-licenses.txt --excludePackages zen-univ-curriculum-graph-react && npx @lizenz/checker --production --customPath ./lizenz-checker-custom-path.json --out ./THIRD-PARTY-NOTICES.txt --excludePackages zen-univ-curriculum-graph-react",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -17,6 +19,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@lizenz/checker": "^0.0.2",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/cytoscape": "^3.21.9",
     "@types/cytoscape-fcose": "^2.2.5",
