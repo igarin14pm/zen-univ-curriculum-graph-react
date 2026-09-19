@@ -5,7 +5,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
+    "dev": "npx @lizenz/checker --production --customPath ./lizenz-checker-custom-path.json --out ./public/text/third-party-licenses.txt --excludePackages zen-univ-curriculum-graph-react && npx @lizenz/checker --production --customPath ./lizenz-checker-custom-path.json --out ./THIRD-PARTY-NOTICES.txt --excludePackages zen-univ-curriculum-graph-react && vite",
     "prebuild": "npx @lizenz/checker --production --customPath ./lizenz-checker-custom-path.json --out ./public/text/third-party-licenses.txt --excludePackages zen-univ-curriculum-graph-react && npx @lizenz/checker --production --customPath ./lizenz-checker-custom-path.json --out ./THIRD-PARTY-NOTICES.txt --excludePackages zen-univ-curriculum-graph-react",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
