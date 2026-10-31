@@ -127,7 +127,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 │  └─ copyright: Copyright (c) 2017-2018 Fredrik Nicol
-├─ fuse.js@7.4.2
+├─ fuse.js@7.5.0
 │  ├─ licenses: Apache-2.0
 │  ├─ repository: https://github.com/krisk/Fuse
 │  ├─ publisher: Kiro Risk
